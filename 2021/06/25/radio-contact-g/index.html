@@ -29,7 +29,11 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -471,18 +475,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>$dp$题</p>
-<p>设$dp_{i,j}$为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
-<p>很容易得到转移方程$f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist$</p>
-<p>其中$dist$为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%BA%A6%E9%87%8F/1274107?fromtitle=%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB&fromid=2701459">欧几里得距离</a>的平方</p>
-<p>即$(x_1-x_2)^2-(y_1-y_2)^2$</p>
-<h3 id="注意一下初始化："><a href="#注意一下初始化：" class="headerlink" title="注意一下初始化："></a>注意一下初始化：</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
+                <h2 id="题目链接">题目链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
+<h2 id="思路">思路</h2>
+<p><span class="math inline">\(dp\)</span>题</p>
+<p>设<span class="math inline">\(dp_{i,j}\)</span>为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
+<p>很容易得到转移方程<span class="math inline">\(f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist\)</span></p>
+<p>其中<span class="math inline">\(dist\)</span>为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/欧几里得度量/1274107?fromtitle=欧几里得距离&amp;fromid=2701459">欧几里得距离</a>的平方</p>
+<p>即<span class="math inline">\((x_1-x_2)^2-(y_1-y_2)^2\)</span></p>
+<h3 id="注意一下初始化">注意一下初始化：</h3>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
 f[0][i] &#x3D; f[i - 1][0] + dist;
 f[0][0] &#x3D; 0; &#x2F;&#x2F;初始位置不消耗能量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>然后这道题就愉快的AC了</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<h2 id="代码">代码</h2>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #define fo(i,x,y) for(register int i&#x3D;x;i&lt;&#x3D;y;++i)
 #define go(i,x,y) for(register int i&#x3D;x;i&gt;&#x3D;y;--i)
@@ -536,7 +543,6 @@ int main() &#123;
 	printf(&quot;%lld\n&quot;, f[lenf][lenb]);
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>

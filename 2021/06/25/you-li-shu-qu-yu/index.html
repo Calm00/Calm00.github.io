@@ -29,7 +29,11 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -471,39 +475,84 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2613">P2613 【模板】有理数取余</a></p>
-<h3 id="题目非常简单易懂"><a href="#题目非常简单易懂" class="headerlink" title="题目非常简单易懂"></a>题目非常简单易懂</h3><p>给出一个有理数 $c=\frac{a}{b}$，求 $c\bmod19260817$ 的值。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>看到这道题时</p>
+                <h2 id="题目描述">题目描述</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2613">P2613 【模板】有理数取余</a></p>
+<h3 id="题目非常简单易懂">题目非常简单易懂</h3>
+<p>给出一个有理数 <span class="math inline">\(c=\frac{a}{b}\)</span>，求 <span class="math inline">\(c\bmod19260817\)</span> 的值。</p>
+<h2 id="思路">思路</h2>
+<p>看到这道题时</p>
 <ul>
 <li>第一眼：好像很简单啊</li>
-<li>第二眼：$a,b\leq10^{10001}$？！！</li>
+<li>第二眼：<span class="math inline">\(a,b\leq10^{10001}\)</span>？！！</li>
 <li>第三眼：卧槽这啥玩意？！！</li>
 </ul>
 <p>要做这道题，我们来介绍一个新的东西<del>（主要是本蒟蒻不会<code>exgcd</code>（欧几里得扩展）</del></p>
-<h3 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h3><blockquote>
+<h3 id="逆元">逆元</h3>
+<blockquote>
 <p>P 是一个质数</p>
 </blockquote>
-<p>令 $b’$ 为 $b$ 的逆元，那么有$b\times b’\equiv1,(mod,P)$</p>
-<p>有 $\frac{a}{b}\equiv\frac{a}{b}\times1\equiv\frac{a}{b}\times(b\times b’)\equiv a\times b’,(mod,P)$</p>
-<p>显然可以看出 $b’$ 的值为 $\frac{1}{b}$</p>
-<p>但是除以 $b$ 与乘以 $\frac{1}{b}$ 是一样的啊，怎么办呢？</p>
-<h3 id="费马小定理闪亮登场"><a href="#费马小定理闪亮登场" class="headerlink" title="费马小定理闪亮登场"></a>费马小定理闪亮登场</h3><p><strong>定理内容：如果 $p$ 是一个质数，而整数 $a$ 不是 $p$ 的倍数，则有$a^{p-1}\equiv1,(mod,p)$</strong></p>
-<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p><strong>你可以选择<a href="#%E5%9B%9E%E5%BD%92%E6%AD%A3%E9%A2%98">跳过</a>这部分</strong></p>
+<p>令 <span class="math inline">\(b&#39;\)</span> 为 <span class="math inline">\(b\)</span> 的逆元，那么有<span class="math inline">\(b\times b&#39;\equiv1\,(mod\,P)\)</span></p>
+<p>有 <span class="math inline">\(\frac{a}{b}\equiv\frac{a}{b}\times1\equiv\frac{a}{b}\times(b\times b&#39;)\equiv a\times b&#39;\,(mod\,P)\)</span></p>
+<p>显然可以看出 <span class="math inline">\(b&#39;\)</span> 的值为 <span class="math inline">\(\frac{1}{b}\)</span></p>
+<p>但是除以 <span class="math inline">\(b\)</span> 与乘以 <span class="math inline">\(\frac{1}{b}\)</span> 是一样的啊，怎么办呢？</p>
+<h3 id="费马小定理闪亮登场">费马小定理闪亮登场</h3>
+<p><strong>定理内容：如果 <span class="math inline">\(p\)</span> 是一个质数，而整数 <span class="math inline">\(a\)</span> 不是 <span class="math inline">\(p\)</span> 的倍数，则有<span class="math inline">\(a^{p-1}\equiv1\,(mod\,p)\)</span></strong></p>
+<h4 id="证明">证明</h4>
+<p><strong>你可以选择<a href="#回归正题">跳过</a>这部分</strong></p>
 <blockquote>
-<p> 证明部分 $p$ 是一个质数</p>
+<p>证明部分 <span class="math inline">\(p\)</span> 是一个质数</p>
 </blockquote>
-<h5 id="第一个证明"><a href="#第一个证明" class="headerlink" title="第一个证明"></a>第一个证明</h5><p>首先我们考虑一个前置定理：</p>
-<p>若$gcd(c,p)=1$，且$ac\equiv bc,(mod,p)$，那么有$a\equiv b,(mod,p)$</p>
-<p><strong>证：</strong><br>$$<br>\begin{align}<br>&amp;\because ac\equiv bc,(mod,p)\<br>&amp;\therefore (a-b)c\equiv 0,(mod,p)\<br>&amp;\therefore (a-b)c,是,p,的整数倍\<br>又&amp;\because gcd(c,p)=1\<br>&amp;\therefore a-b\equiv0,(mod,p)\<br>&amp;即a\equiv b,(mod,p)<br>\end{align}<br>$$<br><strong>证毕</strong></p>
-<h5 id="第二个证明"><a href="#第二个证明" class="headerlink" title="第二个证明"></a>第二个证明</h5><p>然后我们进入正题，假设有正整数$a(a&lt;p) $满足条件$gcd(a,p)=1$，那么我们将 $a$ 乘上 $1\thicksim p-1$ 后可以构成一个 $mod,p$ 的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E5%89%A9%E4%BD%99%E7%B3%BB">完全剩余系</a></p>
-<p><strong>证：</strong><br>$$<br>\begin{align}<br>&amp;假设存在xa\equiv ya,(mod,p),且x\neq y\<br>&amp;\because gcd(a,p)=1\<br>&amp;\therefore 原式成立当且仅当x\equiv y,(mod,p)\<br>又&amp;\because x,y\in [1,p-1]\<br>&amp;\therefore x\equiv y,(mod,p)当且仅当x=y,与已知条件矛盾\<br>&amp;\therefore 假设不成立，原命题成立<br>\end{align}<br>$$<br><strong>证毕</strong></p>
-<h5 id="第三个证明"><a href="#第三个证明" class="headerlink" title="第三个证明"></a>第三个证明</h5><p>接下来证明 $a^{p-1}\equiv1,(mod,p)$</p>
-<p><strong>证：</strong><br>$$<br>\begin{align}<br>&amp;\because 1,2,\cdots,p-1是,mod,p,的完全剩余系\<br>&amp;\therefore有1\times2\times\cdots\times p-1\equiv a\times2a\times\cdots\times (p-1)a,(mod,p)\<br>&amp;即 (p-1)!\equiv (p-1)!\times a^{p-1},(mod,p)\<br>又&amp;\because p是质数\<br>&amp;\therefore gcd((p-1)!,p)=1\<br>&amp;\therefore a^{p-1}\equiv1,(mod,p)<br>\end{align}<br>$$</p>
+<h5 id="第一个证明">第一个证明</h5>
+<p>首先我们考虑一个前置定理：</p>
+<p>若<span class="math inline">\(gcd(c,p)=1\)</span>，且<span class="math inline">\(ac\equiv bc\,(mod\,p)\)</span>，那么有<span class="math inline">\(a\equiv b\,(mod\,p)\)</span></p>
+<p><strong>证：</strong> <span class="math display">\[
+\begin{align}
+&amp;\because ac\equiv bc\,(mod\,p)\\
+&amp;\therefore (a-b)c\equiv 0\,(mod\,p)\\
+&amp;\therefore (a-b)c\,是\,p\,的整数倍\\
+又&amp;\because gcd(c,p)=1\\
+&amp;\therefore a-b\equiv0\,(mod\,p)\\
+&amp;即a\equiv b\,(mod\,p)
+\end{align}
+\]</span> <strong>证毕</strong></p>
+<h5 id="第二个证明">第二个证明</h5>
+<p>然后我们进入正题，假设有正整数$a(a&lt;p) <span class="math inline">\(满足条件\)</span>gcd(a,p)=1$，那么我们将 <span class="math inline">\(a\)</span> 乘上 <span class="math inline">\(1\thicksim p-1\)</span> 后可以构成一个 <span class="math inline">\(mod\,p\)</span> 的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E5%89%A9%E4%BD%99%E7%B3%BB">完全剩余系</a></p>
+<p><strong>证：</strong> <span class="math display">\[
+\begin{align}
+&amp;假设存在xa\equiv ya\,(mod\,p),且x\neq y\\
+&amp;\because gcd(a,p)=1\\
+&amp;\therefore 原式成立当且仅当x\equiv y\,(mod\,p)\\
+又&amp;\because x,y\in [1,p-1]\\
+&amp;\therefore x\equiv y\,(mod\,p)当且仅当x=y,与已知条件矛盾\\
+&amp;\therefore 假设不成立，原命题成立
+\end{align}
+\]</span> <strong>证毕</strong></p>
+<h5 id="第三个证明">第三个证明</h5>
+<p>接下来证明 <span class="math inline">\(a^{p-1}\equiv1\,(mod\,p)\)</span></p>
+<p><strong>证：</strong> <span class="math display">\[
+\begin{align}
+&amp;\because 1,2,\cdots,p-1是\,mod\,p\,的完全剩余系\\
+&amp;\therefore有1\times2\times\cdots\times p-1\equiv a\times2a\times\cdots\times (p-1)a\,(mod\,p)\\
+&amp;即 (p-1)!\equiv (p-1)!\times a^{p-1}\,(mod\,p)\\
+又&amp;\because p是质数\\
+&amp;\therefore gcd((p-1)!,p)=1\\
+&amp;\therefore a^{p-1}\equiv1\,(mod\,p)
+\end{align}
+\]</span></p>
 <p><strong>证毕</strong></p>
-<h4 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h4><p>根据费马小定理，显然 $b’=b^{P-2}$</p>
-<p>什么？不显然吗？<br>$$<br>\begin{align}<br>\because b’\times b&amp;\equiv1,(mod,P)\<br>b^{P-1}&amp;\equiv1,(mod,P)\<br>\therefore b’\times b&amp;\equiv b^{P-1},(mod,P)\<br>\therefore b’&amp;=b^{P-2}<br>\end{align}<br>$$<br>那么 $\frac{a}{b}=a\times b^{P-2}$</p>
-<p>然后我们就可以用快速幂轻松A掉这题了（$ps$：虽然快速幂让我们不需要高精了，但<code>long long</code>还是要的</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<h4 id="回归正题">回归正题</h4>
+<p>根据费马小定理，显然 <span class="math inline">\(b&#39;=b^{P-2}\)</span></p>
+<p>什么？不显然吗？ <span class="math display">\[
+\begin{align}
+\because b&#39;\times b&amp;\equiv1\,(mod\,P)\\
+b^{P-1}&amp;\equiv1\,(mod\,P)\\
+\therefore b&#39;\times b&amp;\equiv b^{P-1}\,(mod\,P)\\
+\therefore b&#39;&amp;=b^{P-2}
+\end{align}
+\]</span> 那么 <span class="math inline">\(\frac{a}{b}=a\times b^{P-2}\)</span></p>
+<p>然后我们就可以用快速幂轻松A掉这题了（<span class="math inline">\(ps\)</span>：虽然快速幂让我们不需要高精了，但<code>long long</code>还是要的</p>
+<h2 id="代码">代码</h2>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 
 const int MOD &#x3D; 19260817;
 

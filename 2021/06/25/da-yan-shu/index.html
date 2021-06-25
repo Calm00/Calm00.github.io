@@ -29,7 +29,11 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -471,17 +475,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2285">P2285 打鼹鼠</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>很明显，这是一道$dp$题，因为标签已经告诉我们了（不是</p>
-<p>怎么$dp$呢？</p>
+                <h2 id="题目链接">题目链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2285">P2285 打鼹鼠</a></p>
+<h2 id="思路">思路</h2>
+<p>很明显，这是一道<span class="math inline">\(dp\)</span>题，因为标签已经告诉我们了（不是</p>
+<p>怎么<span class="math inline">\(dp\)</span>呢？</p>
 <p>棋盘？三维必炸啊，<del>二维本蒟蒻不会</del></p>
 <p>时间？<del>更离谱了</del></p>
 <p>所以就只能从鼹鼠下手了</p>
-<p>设$dp_i$为到第$i$只鼹鼠时最多能打到几只</p>
-<p>因为我们要守株待兔（鼠），所以初始化$dp_i=1$</p>
-<p>若两鼹鼠之间的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB/743092?fr=aladdin">曼哈顿距离</a>小于出现时间差</p>
-<p>此时转移方程为$dp_i=min(dp[i],dp[j]+1)$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<p>设<span class="math inline">\(dp_i\)</span>为到第<span class="math inline">\(i\)</span>只鼹鼠时最多能打到几只</p>
+<p>因为我们要守株待兔（鼠），所以初始化<span class="math inline">\(dp_i=1\)</span></p>
+<p>若两鼹鼠之间的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/曼哈顿距离/743092?fr=aladdin">曼哈顿距离</a>小于出现时间差</p>
+<p>此时转移方程为<span class="math inline">\(dp_i=min(dp[i],dp[j]+1)\)</span></p>
+<h2 id="代码">代码</h2>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 #include&lt;cmath&gt;
 #define fo(i,x,y) for(register int i&#x3D;x;i&lt;&#x3D;y;++i)
 #define go(i,x,y) for(register int i&#x3D;x;i&gt;&#x3D;y;--i)
@@ -513,7 +520,6 @@ int main() &#123;
 	printf(&quot;%d\n&quot;, ans);
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
