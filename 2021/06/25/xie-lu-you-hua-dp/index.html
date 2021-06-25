@@ -471,15 +471,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h2><p>[TOC]</p>
-<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><table>
+                <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>名称</th>
 <th>定义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>凸多边形</td>
 <td>所有内角都在$(0°,180°)$的简单多边形</td>
 </tr>
@@ -495,7 +496,9 @@
 <td>下凸包</td>
 <td>凸包中横坐标最小的点到横坐标最大的点的下半部分</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>如右图，蓝色部分是上凸包，橙色部分是下凸包<img src="https://z3.ax1x.com/2021/06/02/2lVNGV.png" alt="001" style="zoom:25%;" /></p>
 <blockquote>
 <p>让我们通过例题来学习斜率优化$dp$</p>
@@ -512,17 +515,24 @@
 <p>第 $2$ 到 第 $(n+1)$ 行，每行一个整数，第 $(i+1)$ 行的整数代表第 $i$ 件玩具的长度 $C_i$。</p>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一行一个整数，代表所有容器的总费用最小是多少。</p>
 <h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于全部的测试点，$1 \leq n \leq 5 \times 10^4,1 \leq L \leq 10^7,1 \leq C_i \leq 10^7$</p>
-<h3 id="基本-dp-思路"><a href="#基本-dp-思路" class="headerlink" title="基本$dp$思路"></a>基本$dp$思路</h3><p>设$F_i$为装前$i$个玩具的最小费用，则$F_i=min_{0\leq j&lt;i}(F_j+(i-j-1-L+\sum^{i}_{k=j+1}C_k)^2)$</p>
+<h3 id="基本-dp-思路"><a href="#基本-dp-思路" class="headerlink" title="基本$dp$思路"></a>基本$dp$思路</h3><p>设$F<em>i$为装前$i$个玩具的最小费用，则$F_i=min</em>{0\leq j&lt;i}(F<em>j+(i-j-1-L+\sum^{i}</em>{k=j+1}C_k)^2)$</p>
 <p>其中$\sum^{i}<em>{k=j+1}C_k$可以用前缀和优化掉，变成$F_i=min</em>{0\leq j&lt;i}(F_j+(i-j-1-L+sum_i-sum_j)^2)$</p>
 <p>非常好啊，$O(n^2)$，0分到手</p>
 <p>怎么办呢？</p>
 <h3 id="处理一下"><a href="#处理一下" class="headerlink" title="处理一下"></a>处理一下</h3><p>这个$dp$方程好像不太好处理</p>
-<p>首先我们不看这个$min$，只看$F_i=F_j+(i-j-1-L+sum_i-sum_j )^2$<br>$$<br>\begin{align}<br>令A=i+sum_i，B&amp;=j+sum_j，C=L+1\<br>F_j+(A-B-C)^2&amp;=F_j+A^2+(B+C)^2-2A(B+C)\<br>F_i+2A(B+C)&amp;=F_j+A^2+(B+C)^2\<br>令x=B+C，y=F_j&amp;+(B+C)^2，k=2A，b=F_i-A^2\<br>y&amp;=kx+b<br>\end{align}<br>$$</p>
-<p>想到了什么？</p>
+<p>首先我们不看这个$min$，只看$F_i=F_j+(i-j-1-L+sum_i-sum_j )^2$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+令A=i+sum_i，B&=j+sum_j，C=L+1\\
+F_j+(A-B-C)^2&=F_j+A^2+(B+C)^2-2A(B+C)\\
+F_i+2A(B+C)&=F_j+A^2+(B+C)^2\\
+令x=B+C，y=F_j&+(B+C)^2，k=2A，b=F_i-A^2\\
+y&=kx+b
+\end{align}</script><p>想到了什么？</p>
 <p>我们要最小化$F_i$，那也就是说我们要最小化$b$</p>
 <p>对于每一个确定的$i$，$k$都是确定的</p>
 <p>问题转化成了求过$(B+C, F_j+(B+C)^2)$中任意一点且斜率为k的直线截距的最小值。</p>
-<h4 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h4><p><strong>如果你只想知道斜率优化怎么用，那么你可以<a href="#%E5%9B%9E%E5%BD%92%E6%AD%A3%E9%A2%98">点此</a>跳过这部分。</strong></p>
+<h4 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h4><p><strong>如果你只想知道斜率优化怎么用，那么你可以<a href="#回归正题">点此</a>跳过这部分。</strong></p>
 <p>我们易可证截距的最小值一定取在下凸包上</p>
 <p>证明：假如截距的最小值取在非下凸包上的一个点$(x_0,y_0 )$，则有两种情况：</p>
 <p>（一） 下凸包上有一个点$(x_0,y_1)$</p>
@@ -538,9 +548,23 @@
 <li>过$(x_2,y_2)$的为$y=kx+y_2-kx_2$</li>
 </ul>
 <p>由（一）可得$y_0-kx_0&gt;x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0$</p>
-<p>$$<br>\begin{align}<br>&amp;k&gt;\frac{y_1-y_2}{x_1-x_2}\<br>&amp;(x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2 }-kx_0)-(y_1-kx_1 )\<br>&amp;=\frac{x_0 y_1-x_0 y_2+x_1 y_2-x_1 y_1}{x_1-x_2}-k(x_1-x_0)\<br>&amp;=\frac{(x_0-x_1)(y_1-y_2)}{x_1-x_2}-k(x_0-x_1)\<br>&amp;&gt;\frac{(x_0-x_1 )(y_1-y_2)}{x_1-x_2}-\frac{(x_0-x_1)(y_1-y_2 )}{x_1-x_2}\<br>&amp;=0<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>&amp;k\leq\frac{y_1-y_2}{x_1-x_2}\<br>&amp;(𝑥_0\frac{𝑦_1−𝑦_2}{𝑥_1−𝑥_2}+\frac{𝑥_1 𝑦_2−𝑥_2 𝑦_1}{𝑥_1−𝑥_2}−𝑘𝑥_0 )−(𝑦_2−𝑘𝑥_2 )\<br>&amp;=\frac{𝑥_0 𝑦_1−𝑥_0 𝑦_2+𝑥_2 𝑦_2−𝑥_2 𝑦_1}{𝑥_1−𝑥_2}−𝑘(𝑥_2−𝑥_0)\<br>&amp;=\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}−𝑘(𝑥_0−𝑥_2 )\<br>&amp;≥\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}−\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}\<br>&amp;=0<br>\end{align}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+\begin{align}
+&k>\frac{y_1-y_2}{x_1-x_2}\\
+&(x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2 }-kx_0)-(y_1-kx_1 )\\
+&=\frac{x_0 y_1-x_0 y_2+x_1 y_2-x_1 y_1}{x_1-x_2}-k(x_1-x_0)\\
+&=\frac{(x_0-x_1)(y_1-y_2)}{x_1-x_2}-k(x_0-x_1)\\
+&>\frac{(x_0-x_1 )(y_1-y_2)}{x_1-x_2}-\frac{(x_0-x_1)(y_1-y_2 )}{x_1-x_2}\\
+&=0
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+&k\leq\frac{y_1-y_2}{x_1-x_2}\\
+&(𝑥_0\frac{𝑦_1−𝑦_2}{𝑥_1−𝑥_2}+\frac{𝑥_1 𝑦_2−𝑥_2 𝑦_1}{𝑥_1−𝑥_2}−𝑘𝑥_0 )−(𝑦_2−𝑘𝑥_2 )\\
+&=\frac{𝑥_0 𝑦_1−𝑥_0 𝑦_2+𝑥_2 𝑦_2−𝑥_2 𝑦_1}{𝑥_1−𝑥_2}−𝑘(𝑥_2−𝑥_0)\\
+&=\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}−𝑘(𝑥_0−𝑥_2 )\\
+&≥\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}−\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}\\
+&=0
+\end{align}</script><ul>
 <li>综上所述，在$y_1-kx_1$和$y_2-kx_2$中一定存在一个数小于或等于$x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0$，又因为$y_0-kx_0&gt;x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0$，所以在$y_1-kx_1$和$y_2-kx_2$中一定存在一个数小于$y_0-kx_0$，矛盾。</li>
 <li>综上所述，此截距的最小值一定取在下凸包上。</li>
 <li>证毕。</li>
@@ -548,8 +572,8 @@
 <h4 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h4><p>现在我们知道了最优决策点一定在下凸包上</p>
 <p>那么我们怎么找最优决策点呢？</p>
 <p>首先我们易得下凸包中所有线的斜率一定是<strong>单调递增</strong>的</p>
-<p>如果存在三个下凸包中的点$(x_1,y_1 )$，$(x_2,y_2 )$，$(x_3,y_3 )$使得$x_1&lt;x_2&lt;x_3$且$\frac{y_2-y_1}{x_2-x_1}&gt;\frac{y_3-y_2}{x_3-x_2}$，则$y_2-\frac{y_3-y_1}{x_3-x_1} x_2-\frac{x_3 y_1-x_1 y_3}{x_3-x_1}=\frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}$</p>
-<p>又因为$x_1&lt;x_2&lt;x_3$，所以$x_2-x_1&gt;0$，$x_3-x_2&gt;0$，$x_3-x_1&gt;0$</p>
+<p>如果存在三个下凸包中的点$(x_1,y_1 )$，$(x_2,y_2 )$，$(x_3,y_3 )$使得$x_1<x_2<x_3$且$\frac{y_2-y_1}{x_2-x_1}>\frac{y_3-y_2}{x_3-x_2}$，则$y_2-\frac{y_3-y_1}{x_3-x_1} x_2-\frac{x_3 y_1-x_1 y_3}{x_3-x_1}=\frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}$</p>
+<p>又因为$x_1<x_2<x_3$，所以$x_2-x_1>0$，$x_3-x_2&gt;0$，$x_3-x_1&gt;0$</p>
 <p>故$(y_2-y_1 )(x_3-x_2 )&gt;(y_3-y_2 )(x_2-x_1 )$，即$x_2 y_1-x_3 y_1+x_3 y_2&gt;x_1 y_2-x_1 y_3+x_2 y_3$</p>
 <p>所以$\frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}&gt;0$，故$y_2&gt;\frac{y_3-y_1}{x_3-x_1} x_2+\frac{x_3 y_1-x_1 y_3}{x_3-x_1}$，所以$(x_2,y_2 )$一定不在下凸包内。</p>
 <p>思路很清晰了吧？</p>
@@ -581,7 +605,6 @@ int main() &#123;
 	printf(&quot;%lld\n&quot;, f[n]);
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="问题来了"><a href="#问题来了" class="headerlink" title="问题来了"></a>问题来了</h2><p>若$C_k$可以小于0呢？又该怎么做？</p>
 <p>这个我们一眼就能看穿这玩意<strong>不满足单调性</strong>。</p>
 <p>假如说考试的时候你不会证斜率的点或者决策有/没有单调性怎么办？</p>
@@ -647,7 +670,6 @@ int main() &#123;
 	cdq(1, n); printf(&quot;%lld\n&quot;, dp[n]);
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h3><p>思路很简洁，一说就懂，一写就废</p>
 <h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
@@ -797,7 +819,6 @@ int main() &#123;
 	printf(&quot;%lld&quot;, dp[n]);
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h3 id="二进制分组"><a href="#二进制分组" class="headerlink" title="二进制分组"></a>二进制分组</h3><p>我们将所有的点分成若干组，第$i$组大小为$2^i$，显然组数不超过$O(\log n)$。我们维护每组的凸包。</p>
 <p>插入一个点时，若没有第0组，则将它作为第0组，否则将它和第0组合并。这样我们得到了第1组。接下来如果有第1组，则再将它与第1组合并得到第2组……类似二进制+1的过程。</p>
 <p>查询在每一组分别二分，取最大即可。</p>
@@ -878,7 +899,6 @@ int main() &#123;
 	printf(&quot;%lld&quot;, dp[n]);
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在$dp$的最小/最大化问题中，将转移方程分成四部分：一部分与$i, j$都无关，一部分只与$j$有关，一部分只与$i$有关，还有一部分和$i, j$都有关。如果它能写成 $y=kx+b$ 的形式，我们就可以维护一个凸包，来进行状态的转移。</p>
 <p><strong>怎么样，你学会(废)了吗</strong></p>
 <h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><blockquote>
@@ -1368,6 +1388,13 @@ int main() &#123;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
