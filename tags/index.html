@@ -366,10 +366,61 @@
             </div>
             <div class="tag-chips">
                 
+                
+                <a href="/tags/%E7%81%8C%E6%B0%B4%E5%8C%BA/" title="灌水区: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="灌水区" style="background-color: #F9EBEA;">灌水区
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E9%A2%98%E8%A7%A3/" title="题解: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="题解" style="background-color: #F5EEF8;">题解
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%95%99%E7%A8%8B/" title="教程: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="教程" style="background-color: #D5F5E3;">教程
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
 </div>
+
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"灌水区","weight":1,"link":"/tags/灌水区/"},{"text":"题解","weight":3,"link":"/tags/题解/"},{"text":"教程","weight":2,"link":"/tags/教程/"}], {
+        autoResize: true
+    });
+</script>
 
     
 

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Calm&#39;s blog">
+    <meta name="keywords" content="有理数取余, Calm&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Calm&#39;s blog</title>
+    <title>有理数取余 | Calm&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">有理数取余</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%81%8C%E6%B0%B4%E5%8C%BA/">
-                                <span class="chip bg-color">灌水区</span>
+                            <a href="/tags/%E9%A2%98%E8%A7%A3/">
+                                <span class="chip bg-color">题解</span>
                             </a>
                         
                     </div>
@@ -471,14 +471,67 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hello-大家好啊"><a href="#Hello-大家好啊" class="headerlink" title="Hello 大家好啊"></a>Hello 大家好啊</h2><p>我是Calm，一个初入博客的蒟蒻，希望大家多多包涵，反馈的问题我都会尽快解决</p>
-<p><strong>谢谢大家</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
-int main() &#123;
-    printf(&quot;Hello World!\n&quot;);
-    return 114514; &#x2F;&#x2F;:)
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2613">P2613 【模板】有理数取余</a></p>
+<h3 id="题目非常简单易懂"><a href="#题目非常简单易懂" class="headerlink" title="题目非常简单易懂"></a>题目非常简单易懂</h3><p>给出一个有理数 $c=\frac{a}{b}$，求 $c\bmod19260817$ 的值。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>看到这道题时</p>
+<ul>
+<li>第一眼：好像很简单啊</li>
+<li>第二眼：$a,b\leq10^{10001}$？！！</li>
+<li>第三眼：卧槽这啥玩意？！！</li>
+</ul>
+<p>要做这道题，我们来介绍一个新的东西<del>（主要是本蒟蒻不会<code>exgcd</code>（欧几里得扩展）</del></p>
+<h3 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h3><blockquote>
+<p>P 是一个质数</p>
+</blockquote>
+<p>令 $b’$ 为 $b$ 的逆元，那么有$b\times b’\equiv1,(mod,P)$</p>
+<p>有 $\frac{a}{b}\equiv\frac{a}{b}\times1\equiv\frac{a}{b}\times(b\times b’)\equiv a\times b’,(mod,P)$</p>
+<p>显然可以看出 $b’$ 的值为 $\frac{1}{b}$</p>
+<p>但是除以 $b$ 与乘以 $\frac{1}{b}$ 是一样的啊，怎么办呢？</p>
+<h3 id="费马小定理闪亮登场"><a href="#费马小定理闪亮登场" class="headerlink" title="费马小定理闪亮登场"></a>费马小定理闪亮登场</h3><p><strong>定理内容：如果 $p$ 是一个质数，而整数 $a$ 不是 $p$ 的倍数，则有$a^{p-1}\equiv1,(mod,p)$</strong></p>
+<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p><strong>你可以选择<a href="#%E5%9B%9E%E5%BD%92%E6%AD%A3%E9%A2%98">跳过</a>这部分</strong></p>
+<blockquote>
+<p> 证明部分 $p$ 是一个质数</p>
+</blockquote>
+<h5 id="第一个证明"><a href="#第一个证明" class="headerlink" title="第一个证明"></a>第一个证明</h5><p>首先我们考虑一个前置定理：</p>
+<p>若$gcd(c,p)=1$，且$ac\equiv bc,(mod,p)$，那么有$a\equiv b,(mod,p)$</p>
+<p><strong>证：</strong><br>$$<br>\begin{align}<br>&amp;\because ac\equiv bc,(mod,p)\<br>&amp;\therefore (a-b)c\equiv 0,(mod,p)\<br>&amp;\therefore (a-b)c,是,p,的整数倍\<br>又&amp;\because gcd(c,p)=1\<br>&amp;\therefore a-b\equiv0,(mod,p)\<br>&amp;即a\equiv b,(mod,p)<br>\end{align}<br>$$<br><strong>证毕</strong></p>
+<h5 id="第二个证明"><a href="#第二个证明" class="headerlink" title="第二个证明"></a>第二个证明</h5><p>然后我们进入正题，假设有正整数$a(a&lt;p) $满足条件$gcd(a,p)=1$，那么我们将 $a$ 乘上 $1\thicksim p-1$ 后可以构成一个 $mod,p$ 的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E5%89%A9%E4%BD%99%E7%B3%BB">完全剩余系</a></p>
+<p><strong>证：</strong><br>$$<br>\begin{align}<br>&amp;假设存在xa\equiv ya,(mod,p),且x\neq y\<br>&amp;\because gcd(a,p)=1\<br>&amp;\therefore 原式成立当且仅当x\equiv y,(mod,p)\<br>又&amp;\because x,y\in [1,p-1]\<br>&amp;\therefore x\equiv y,(mod,p)当且仅当x=y,与已知条件矛盾\<br>&amp;\therefore 假设不成立，原命题成立<br>\end{align}<br>$$<br><strong>证毕</strong></p>
+<h5 id="第三个证明"><a href="#第三个证明" class="headerlink" title="第三个证明"></a>第三个证明</h5><p>接下来证明 $a^{p-1}\equiv1,(mod,p)$</p>
+<p><strong>证：</strong><br>$$<br>\begin{align}<br>&amp;\because 1,2,\cdots,p-1是,mod,p,的完全剩余系\<br>&amp;\therefore有1\times2\times\cdots\times p-1\equiv a\times2a\times\cdots\times (p-1)a,(mod,p)\<br>&amp;即 (p-1)!\equiv (p-1)!\times a^{p-1},(mod,p)\<br>又&amp;\because p是质数\<br>&amp;\therefore gcd((p-1)!,p)=1\<br>&amp;\therefore a^{p-1}\equiv1,(mod,p)<br>\end{align}<br>$$</p>
+<p><strong>证毕</strong></p>
+<h4 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h4><p>根据费马小定理，显然 $b’=b^{P-2}$</p>
+<p>什么？不显然吗？<br>$$<br>\begin{align}<br>\because b’\times b&amp;\equiv1,(mod,P)\<br>b^{P-1}&amp;\equiv1,(mod,P)\<br>\therefore b’\times b&amp;\equiv b^{P-1},(mod,P)\<br>\therefore b’&amp;=b^{P-2}<br>\end{align}<br>$$<br>那么 $\frac{a}{b}=a\times b^{P-2}$</p>
+<p>然后我们就可以用快速幂轻松A掉这题了（$ps$：虽然快速幂让我们不需要高精了，但<code>long long</code>还是要的</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 
+const int MOD &#x3D; 19260817;
+
+inline long long read() &#123;
+	long long X &#x3D; 0, flag &#x3D; 1; char ch &#x3D; getchar();
+	while(ch &lt; &#39;0&#39; || ch &gt; &#39;9&#39;) &#123;if(ch &#x3D;&#x3D; &#39;-&#39;) flag &#x3D; 0; ch&#x3D;getchar();&#125;
+	while(ch &gt;&#x3D; &#39;0&#39; &amp;&amp; ch &lt;&#x3D; &#39;9&#39;) &#123;X &#x3D; (X * 10 + (ch ^ 48)) % MOD; ch &#x3D; getchar();&#125;
+	return flag ? X : -X;
+&#125;
+
+long long a, b;
+
+long long QuickPow(long long x, long long y) &#123;
+	long long ans &#x3D; 1, k &#x3D; MOD - 2;
+	while(k) &#123;
+		if(k &amp; 1) ans &#x3D; ans * x % MOD;
+		x &#x3D; x * x % MOD;
+		k &gt;&gt;&#x3D; 1;
+	&#125;
+	return ans * y % MOD;
+&#125;&#x2F;&#x2F;快速幂不建议这样写，还是用模板比较好
+
+int main() &#123;
+	a &#x3D; read(); b &#x3D; read();
+	if(b) printf(&quot;%lld\n&quot;, QuickPow(b, a));
+	else printf(&quot;Angry!\n&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -505,7 +558,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://calm00.github.io/2021/06/25/hello-world/">http://calm00.github.io/2021/06/25/hello-world/</a>
+                    <a href="http://calm00.github.io/2021/06/25/you-li-shu-qu-yu/">http://calm00.github.io/2021/06/25/you-li-shu-qu-yu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -543,8 +596,8 @@ int main() &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%81%8C%E6%B0%B4%E5%8C%BA/">
-                                    <span class="chip bg-color">灌水区</span>
+                                <a href="/tags/%E9%A2%98%E8%A7%A3/">
+                                    <span class="chip bg-color">题解</span>
                                 </a>
                             
                         </div>
@@ -715,7 +768,7 @@ int main() &#123;
         repo: 'Calm00.github.io',
         owner: 'Calm00',
         admin: "Calm00",
-        id: '2021-06-25T21-38-19',
+        id: '2021-06-25T21-49-03',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -747,13 +800,13 @@ int main() &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/25/you-li-shu-qu-yu/">
+                <a href="/2021/06/25/radio-contact-g/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="有理数取余">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Radio Contact G">
                         
-                        <span class="card-title">有理数取余</span>
+                        <span class="card-title">Radio Contact G</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,7 +842,7 @@ int main() &#123;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/06/25/hello-world/">
@@ -819,7 +872,6 @@ int main() &#123;
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
