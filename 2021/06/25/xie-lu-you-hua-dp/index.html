@@ -515,12 +515,12 @@
 <p>第 $2$ 到 第 $(n+1)$ 行，每行一个整数，第 $(i+1)$ 行的整数代表第 $i$ 件玩具的长度 $C_i$。</p>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一行一个整数，代表所有容器的总费用最小是多少。</p>
 <h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于全部的测试点，$1 \leq n \leq 5 \times 10^4,1 \leq L \leq 10^7,1 \leq C_i \leq 10^7$</p>
-<h3 id="基本-dp-思路"><a href="#基本-dp-思路" class="headerlink" title="基本$dp$思路"></a>基本$dp$思路</h3><p>设$F<em>i$为装前$i$个玩具的最小费用，则$F_i=min</em>{0\leq j&lt;i}(F<em>j+(i-j-1-L+\sum^{i}</em>{k=j+1}C_k)^2)$</p>
-<p>其中$\sum^{i}<em>{k=j+1}C_k$可以用前缀和优化掉，变成$F_i=min</em>{0\leq j&lt;i}(F_j+(i-j-1-L+sum_i-sum_j)^2)$</p>
+<h3 id="基本-dp-思路"><a href="#基本-dp-思路" class="headerlink" title="基本$dp$思路"></a>基本$dp$思路</h3><p>设 $F_i$ 为装前 $i$ 个玩具的最小费用，则 $F_i=min_{0\leq j&lt;i}(F_j+(i-j-1-L+\sum^{i}_{k=j+1}C_k)^2)$</p>
+<p>其中$\sum^{i}_{k=j+1}C_k$可以用前缀和优化掉，变成 $F_i=min_{0\leq j&lt;i}(F_j+(i-j-1-L+sum_i-sum_j)^2)$ </p>
 <p>非常好啊，$O(n^2)$，0分到手</p>
 <p>怎么办呢？</p>
 <h3 id="处理一下"><a href="#处理一下" class="headerlink" title="处理一下"></a>处理一下</h3><p>这个$dp$方程好像不太好处理</p>
-<p>首先我们不看这个$min$，只看$F_i=F_j+(i-j-1-L+sum_i-sum_j )^2$</p>
+<p>首先我们不看这个 $min$ ，只看 $F_i=F_j+(i-j-1-L+sum_i-sum_j )^2$ </p>
 <script type="math/tex; mode=display">
 \begin{align}
 令A=i+sum_i，B&=j+sum_j，C=L+1\\
@@ -529,9 +529,9 @@ F_i+2A(B+C)&=F_j+A^2+(B+C)^2\\
 令x=B+C，y=F_j&+(B+C)^2，k=2A，b=F_i-A^2\\
 y&=kx+b
 \end{align}</script><p>想到了什么？</p>
-<p>我们要最小化$F_i$，那也就是说我们要最小化$b$</p>
+<p>我们要最小化 $F_i$ ，那也就是说我们要最小化$b$</p>
 <p>对于每一个确定的$i$，$k$都是确定的</p>
-<p>问题转化成了求过$(B+C, F_j+(B+C)^2)$中任意一点且斜率为k的直线截距的最小值。</p>
+<p>问题转化成了求过 $(B+C, F_j+(B+C)^2)$ 中任意一点且斜率为k的直线截距的最小值。</p>
 <h4 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h4><p><strong>如果你只想知道斜率优化怎么用，那么你可以<a href="#回归正题">点此</a>跳过这部分。</strong></p>
 <p>我们易可证截距的最小值一定取在下凸包上</p>
 <p>证明：假如截距的最小值取在非下凸包上的一个点$(x_0,y_0 )$，则有两种情况：</p>
@@ -1270,6 +1270,43 @@ int main() &#123;
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Calm&#39;s blog<br />'
+            + '文章作者: Calm<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
