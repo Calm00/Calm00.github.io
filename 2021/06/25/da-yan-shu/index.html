@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-25
+                    2021-08-26
                 </div>
                 
 
@@ -485,15 +485,15 @@
                 <h2 id="题目链接">题目链接</h2>
 <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2285">P2285 打鼹鼠</a></p>
 <h2 id="思路">思路</h2>
-<p>很明显，这是一道<span class="math inline">\(dp\)</span>题，因为标签已经告诉我们了（不是</p>
-<p>怎么<span class="math inline">\(dp\)</span>呢？</p>
+<p>很明显，这是一道 $ dp $ 题，因为标签已经告诉我们了（不是</p>
+<p>怎么 $ dp $ 呢？</p>
 <p>棋盘？三维必炸啊，<del>二维本蒟蒻不会</del></p>
 <p>时间？<del>更离谱了</del></p>
 <p>所以就只能从鼹鼠下手了</p>
-<p>设<span class="math inline">\(dp_i\)</span>为到第<span class="math inline">\(i\)</span>只鼹鼠时最多能打到几只</p>
-<p>因为我们要守株待兔（鼠），所以初始化<span class="math inline">\(dp_i=1\)</span></p>
+<p>设 $ dp_i $ 为到第 $ i $ 只鼹鼠时最多能打到几只</p>
+<p>因为我们要守株待兔（鼠），所以初始化 $ dp_i=1 $</p>
 <p>若两鼹鼠之间的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/曼哈顿距离/743092?fr=aladdin">曼哈顿距离</a>小于出现时间差</p>
-<p>此时转移方程为<span class="math inline">\(dp_i=min(dp[i],dp[j]+1)\)</span></p>
+<p>此时转移方程为 $ dp_i=min(dp[i],dp[j]+1) $</p>
 <h2 id="代码">代码</h2>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 #include&lt;cmath&gt;
@@ -1128,7 +1128,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.5k</span>
+                        class="white-color">7.3k</span>
             
             
             

@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-25
+                    2021-08-26
                 </div>
                 
 
@@ -485,11 +485,11 @@
                 <h2 id="题目链接">题目链接</h2>
 <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
 <h2 id="思路">思路</h2>
-<p><span class="math inline">\(dp\)</span>题</p>
-<p>设<span class="math inline">\(dp_{i,j}\)</span>为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
-<p>很容易得到转移方程<span class="math inline">\(f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist\)</span></p>
-<p>其中<span class="math inline">\(dist\)</span>为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/欧几里得度量/1274107?fromtitle=欧几里得距离&amp;fromid=2701459">欧几里得距离</a>的平方</p>
-<p>即<span class="math inline">\((x_1-x_2)^2-(y_1-y_2)^2\)</span></p>
+<p>$ dp $ 题</p>
+<p>设 $ dp_{i,j} $ 为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
+<p>很容易得到转移方程 $ f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist $</p>
+<p>其中 $ dist $ 为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/欧几里得度量/1274107?fromtitle=欧几里得距离&amp;fromid=2701459">欧几里得距离</a>的平方</p>
+<p>即 $ (x_1-x_2)<sup>2-(y_1-y_2)</sup>2 $</p>
 <h3 id="注意一下初始化">注意一下初始化：</h3>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
 f[0][i] &#x3D; f[i - 1][0] + dist;
@@ -1151,7 +1151,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.5k</span>
+                        class="white-color">7.3k</span>
             
             
             

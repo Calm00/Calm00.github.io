@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-25
+                    2021-08-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    22 分
                 </div>
                 
 
@@ -482,7 +482,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前置知识">前置知识</h2>
+                <h1 id="斜率优化-dp">斜率优化 $ dp $</h1>
+<h2 id="前置知识">前置知识</h2>
 <table>
 <thead>
 <tr class="header">
@@ -493,7 +494,7 @@
 <tbody>
 <tr class="odd">
 <td>凸多边形</td>
-<td>所有内角都在<span class="math inline">\((0°,180°)\)</span>的简单多边形</td>
+<td>所有内角都在 $ (0°,180°) $ 的简单多边形</td>
 </tr>
 <tr class="even">
 <td>凸包</td>
@@ -511,34 +512,34 @@
 </table>
 <p>如右图，蓝色部分是上凸包，橙色部分是下凸包<img src="https://z3.ax1x.com/2021/06/02/2lVNGV.png" alt="001" style="zoom:25%;" /></p>
 <blockquote>
-<p>让我们通过例题来学习斜率优化<span class="math inline">\(dp\)</span></p>
+<p>让我们通过例题来学习斜率优化 $ dp $</p>
 </blockquote>
 <h2 id="例题">例题</h2>
 <h3 id="hnoi2008-玩具装箱"><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3195">[HNOI2008] 玩具装箱</a></h3>
 <h4 id="题目描述">题目描述</h4>
 <p>P 教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。</p>
-<p>P 教授有编号为 <span class="math inline">\(1 \cdots n\)</span> 的 <span class="math inline">\(n\)</span> 件玩具，第件玩具经过压缩后的一维长度为 <span class="math inline">\(C_i\)</span>。</p>
+<p>P 教授有编号为 $ 1 n $ 的 $ n $ 件玩具，第件玩具经过压缩后的一维长度为 $ C_i $ 。</p>
 <p>为了方便整理，P教授要求：</p>
 <ul>
 <li>在一个一维容器中的玩具编号是连续的。</li>
-<li>同时如果一个一维容器中有多个玩具，那么两件玩具之间要加入一个单位长度的填充物。形式地说，如果将第 <span class="math inline">\(i\)</span> 件玩具到第 <span class="math inline">\(j\)</span> 个玩具放到一个容器中，那么容器的长度将为 <span class="math inline">\(x=j-i+\sum_{k=i}^{j}C_k\)</span>。</li>
+<li>同时如果一个一维容器中有多个玩具，那么两件玩具之间要加入一个单位长度的填充物。形式地说，如果将第 $ i $ 件玩具到第 $ j $ 个玩具放到一个容器中，那么容器的长度将为 $ x=j-i+_{k=i}^{j}C_k $ 。</li>
 </ul>
-<p>制作容器的费用与容器的长度有关，根据教授研究，如果容器长度为 <span class="math inline">\(x\)</span>，其制作费用为 <span class="math inline">\((x-L)^2\)</span>。其中 <span class="math inline">\(L\)</span> 是一个常量。P 教授不关心容器的数目，他可以制作出任意长度的容器，甚至超过 <span class="math inline">\(L\)</span>。但他希望所有容器的总费用最小。</p>
+<p>制作容器的费用与容器的长度有关，根据教授研究，如果容器长度为 $ x $ ，其制作费用为 $ (x-L)^2 $ 。其中 $ L $ 是一个常量。P 教授不关心容器的数目，他可以制作出任意长度的容器，甚至超过 $ L $ 。但他希望所有容器的总费用最小。</p>
 <h4 id="输入格式">输入格式</h4>
-<p>第一行有两个整数，用一个空格隔开，分别代表 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(L\)</span>。</p>
-<p>第 <span class="math inline">\(2\)</span> 到 第 <span class="math inline">\((n+1)\)</span> 行，每行一个整数，第 <span class="math inline">\((i+1)\)</span> 行的整数代表第 <span class="math inline">\(i\)</span> 件玩具的长度 <span class="math inline">\(C_i\)</span>。</p>
+<p>第一行有两个整数，用一个空格隔开，分别代表 $ n $ 和 $ L $ 。</p>
+<p>第 $ 2 $ 到 第 $ (n+1) $ 行，每行一个整数，第 $ (i+1) $ 行的整数代表第 $ i $ 件玩具的长度 $ C_i $ 。</p>
 <h4 id="输出格式">输出格式</h4>
 <p>输出一行一个整数，代表所有容器的总费用最小是多少。</p>
 <h4 id="数据范围">数据范围</h4>
-<p>对于全部的测试点，<span class="math inline">\(1 \leq n \leq 5 \times 10^4,1 \leq L \leq 10^7,1 \leq C_i \leq 10^7\)</span></p>
-<h3 id="基本dp思路">基本<span class="math inline">\(dp\)</span>思路</h3>
-<p>设 <span class="math inline">\(F_i\)</span> 为装前 <span class="math inline">\(i\)</span> 个玩具的最小费用，则 <span class="math inline">\(F_i=min_{0\leq j&lt;i}(F_j+(i-j-1-L+\sum^{i}_{k=j+1}C_k)^2)\)</span></p>
-<p>其中<span class="math inline">\(\sum^{i}_{k=j+1}C_k\)</span>可以用前缀和优化掉，变成 <span class="math inline">\(F_i=min_{0\leq j&lt;i}(F_j+(i-j-1-L+sum_i-sum_j)^2)\)</span></p>
-<p>非常好啊，<span class="math inline">\(O(n^2)\)</span>，0分到手</p>
+<p>对于全部的测试点， $ 1 n  ^4,1 L ^7,1 C_i ^7 $</p>
+<h3 id="基本-dp-思路">基本 $ dp $ 思路</h3>
+<p>设 $ F_i $ 为装前 $ i $ 个玩具的最小费用，则 $ F_i=min_{0j&lt;i}(F_j+(i-j-1-L+^{i}_{k=j+1}C_k)^2) $</p>
+<p>其中 $ ^{i}<em>{k=j+1} C_k $ 可以用前缀和优化掉，变成 $ F_i=min</em>{0j&lt;i} (F_j+(i-j-1-L+sum_i-sum_j)^2) $</p>
+<p>非常好啊， $ O(n^2) $ ，0分到手</p>
 <p>怎么办呢？</p>
 <h3 id="处理一下">处理一下</h3>
-<p>这个<span class="math inline">\(dp\)</span>方程好像不太好处理</p>
-<p>首先我们不看这个 <span class="math inline">\(min\)</span> ，只看 <span class="math inline">\(F_i=F_j+(i-j-1-L+sum_i-sum_j )^2\)</span> <span class="math display">\[
+<p>这个 $ dp $ 方程好像不太好处理</p>
+<p>首先我们不看这个 $ min $ ，只看 $ F_i=F_j+(i-j-1-L+sum_i-sum_j )^2 $ <span class="math display">\[
 \begin{align}
 令A=i+sum_i，B&amp;=j+sum_j，C=L+1\\
 F_j+(A-B-C)^2&amp;=F_j+A^2+(B+C)^2-2A(B+C)\\
@@ -548,26 +549,26 @@ y&amp;=kx+b
 \end{align}
 \]</span></p>
 <p>想到了什么？</p>
-<p>我们要最小化 <span class="math inline">\(F_i\)</span> ，那也就是说我们要最小化<span class="math inline">\(b\)</span></p>
-<p>对于每一个确定的<span class="math inline">\(i\)</span>，<span class="math inline">\(k\)</span>都是确定的</p>
-<p>问题转化成了求过 <span class="math inline">\((B+C, F_j+(B+C)^2)\)</span> 中任意一点且斜率为k的直线截距的最小值。</p>
+<p>我们要最小化 $ F_i $ ，那也就是说我们要最小化 $ b $</p>
+<p>对于每一个确定的 $ i $ ， $ k $ 都是确定的</p>
+<p>问题转化成了求过 $ (B+C, F_j+(B+C)^2) $ 中任意一点且斜率为k的直线截距的最小值。</p>
 <h4 id="补充知识">补充知识</h4>
 <p><strong>如果你只想知道斜率优化怎么用，那么你可以<a href="#回归正题">点此</a>跳过这部分。</strong></p>
 <p>我们易可证截距的最小值一定取在下凸包上</p>
-<p>证明：假如截距的最小值取在非下凸包上的一个点<span class="math inline">\((x_0,y_0 )\)</span>，则有两种情况：</p>
-<p>（一） 下凸包上有一个点<span class="math inline">\((x_0,y_1)\)</span></p>
-<p>所以过<span class="math inline">\((x_0,y_0)\)</span>的直线的解析式为<span class="math inline">\(y=kx+y_0-kx_0\)</span>，过<span class="math inline">\((x_0,y_1)\)</span>的直线的解析式为<span class="math inline">\(y=kx+y_1-kx_0\)</span></p>
-<p>根据下凸包的定义可得<span class="math inline">\(y_0&gt;y_1\)</span>，故<span class="math inline">\(y_0-kx_0&gt;y_1-kx_1\)</span>，矛盾</p>
+<p>证明：假如截距的最小值取在非下凸包上的一个点 $ (x_0,y_0 ) $ ，则有两种情况：</p>
+<p>（一） 下凸包上有一个点 $ (x_0,y_1) $</p>
+<p>所以过 $ (x_0,y_0) $ 的直线的解析式为 $ y=kx+y_0-kx_0 $ ，过 $ (x_0,y_1) $ 的直线的解析式为 $ y=kx+y_1-kx_0 $</p>
+<p>根据下凸包的定义可得 $ y_0&gt;y_1 $ ，故 $ y_0-kx_0&gt;y_1-kx_1 $ ，矛盾</p>
 <p>（二） 下凸包上没有和其横坐标相同的点</p>
-<p>根据下凸包的定义，可得下凸包上一定存在两个点<span class="math inline">\((x_1,y_1)\)</span>,<span class="math inline">\((x_2,y_2)\)</span>使得<span class="math inline">\(x_1&lt;x_0&lt;x_2\)</span>且<span class="math inline">\(x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}&lt;y_0\)</span></p>
-<p>我们在经过<span class="math inline">\((x_1,y_1)\)</span>, <span class="math inline">\((x_2,y_2)\)</span>的直线上取一点<span class="math inline">\((x_0,x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-xx_2})\)</span></p>
+<p>根据下凸包的定义，可得下凸包上一定存在两个点 $ (x_1,y_1) $ , $ (x_2,y_2) $ 使得 $ x_1&lt;x_0&lt;x_2 $ 且 $ x_0+&lt;y_0 $</p>
+<p>我们在经过 $ (x_1,y_1) $ , $ (x_2,y_2) $ 的直线上取一点 $ (x_0,x_0+) $</p>
 <ul>
-<li>过<span class="math inline">\((x_0,y_0)\)</span>的直线解析式为<span class="math inline">\(y=kx+y_0-kx_0\)</span></li>
-<li>过<span class="math inline">\((x_0,x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2})\)</span>的为<span class="math inline">\(y=kx+x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0\)</span></li>
-<li>过<span class="math inline">\((x_1,y_1)\)</span>的为<span class="math inline">\(y=kx+y_1-kx_1\)</span></li>
-<li>过<span class="math inline">\((x_2,y_2)\)</span>的为<span class="math inline">\(y=kx+y_2-kx_2\)</span></li>
+<li>过 $ (x_0,y_0) $ 的直线解析式为 $ y=kx+y_0-kx_0 $</li>
+<li>过 $ (x_0,x_0+) $ 的为 $ y=kx+x_0+-kx_0 $</li>
+<li>过 $ (x_1,y_1) $ 的为 $ y=kx+y_1-kx_1 $</li>
+<li>过 $ (x_2,y_2) $ 的为 $ y=kx+y_2-kx_2 $</li>
 </ul>
-<p>由（一）可得<span class="math inline">\(y_0-kx_0&gt;x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0\)</span></p>
+<p>由（一）可得 $ y_0-kx_0&gt;x_0+-kx_0 $</p>
 <p><span class="math display">\[
 \begin{align}
 &amp;k&gt;\frac{y_1-y_2}{x_1-x_2}\\
@@ -589,7 +590,7 @@ y&amp;=kx+b
 \end{align}
 \]</span></p>
 <ul>
-<li>综上所述，在<span class="math inline">\(y_1-kx_1\)</span>和<span class="math inline">\(y_2-kx_2\)</span>中一定存在一个数小于或等于<span class="math inline">\(x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0\)</span>，又因为<span class="math inline">\(y_0-kx_0&gt;x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0\)</span>，所以在<span class="math inline">\(y_1-kx_1\)</span>和<span class="math inline">\(y_2-kx_2\)</span>中一定存在一个数小于<span class="math inline">\(y_0-kx_0\)</span>，矛盾。</li>
+<li>综上所述，在 $ y_1-kx_1 $ 和 $ y_2-kx_2 $ 中一定存在一个数小于或等于 $ x_0+-kx_0 $ ，又因为 $ y_0-kx_0&gt;x_0+-kx_0 $ ，所以在 $ y_1-kx_1 $ 和 $ y_2-kx_2 $ 中一定存在一个数小于 $ y_0-kx_0 $ ，矛盾。</li>
 <li>综上所述，此截距的最小值一定取在下凸包上。</li>
 <li>证毕。</li>
 </ul>
@@ -597,10 +598,10 @@ y&amp;=kx+b
 <p>现在我们知道了最优决策点一定在下凸包上</p>
 <p>那么我们怎么找最优决策点呢？</p>
 <p>首先我们易得下凸包中所有线的斜率一定是<strong>单调递增</strong>的</p>
-<p>如果存在三个下凸包中的点<span class="math inline">\((x_1,y_1 )\)</span>，<span class="math inline">\((x_2,y_2 )\)</span>，<span class="math inline">\((x_3,y_3 )\)</span>使得<span class="math inline">\(x_1&lt;x_2&lt;x_3\)</span>且<span class="math inline">\(\frac{y_2-y_1}{x_2-x_1}&gt;\frac{y_3-y_2}{x_3-x_2}\)</span>，则<span class="math inline">\(y_2-\frac{y_3-y_1}{x_3-x_1} x_2-\frac{x_3 y_1-x_1 y_3}{x_3-x_1}=\frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}\)</span></p>
-<p>又因为<span class="math inline">\(x_1&lt;x_2&lt;x_3\)</span>，所以<span class="math inline">\(x_2-x_1&gt;0\)</span>，<span class="math inline">\(x_3-x_2&gt;0\)</span>，<span class="math inline">\(x_3-x_1&gt;0\)</span></p>
-<p>故<span class="math inline">\((y_2-y_1 )(x_3-x_2 )&gt;(y_3-y_2 )(x_2-x_1 )\)</span>，即<span class="math inline">\(x_2 y_1-x_3 y_1+x_3 y_2&gt;x_1 y_2-x_1 y_3+x_2 y_3\)</span></p>
-<p>所以<span class="math inline">\(\frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}&gt;0\)</span>，故<span class="math inline">\(y_2&gt;\frac{y_3-y_1}{x_3-x_1} x_2+\frac{x_3 y_1-x_1 y_3}{x_3-x_1}\)</span>，所以<span class="math inline">\((x_2,y_2 )\)</span>一定不在下凸包内。</p>
+<p>如果存在三个下凸包中的点 $ (x_1,y_1 ) $ ， $ (x_2,y_2 ) $ ， $ (x_3,y_3 ) $ 使得 $ x_1&lt;x_2&lt;x_3 $ 且 $ &gt; $ ，则 $ y_2- x_2-= $</p>
+<p>又因为 $ x_1&lt;x_2&lt;x_3 $ ，所以 $ x_2-x_1&gt;0 $ ， $ x_3-x_2&gt;0 $ ， $ x_3-x_1&gt;0 $</p>
+<p>故 $ (y_2-y_1 )(x_3-x_2 )&gt;(y_3-y_2 )(x_2-x_1 ) $ ，即 $ x_2 y_1-x_3 y_1+x_3 y_2&gt;x_1 y_2-x_1 y_3+x_2 y_3 $</p>
+<p>所以 $ &gt;0 $ ，故 $ y_2&gt; x_2+ $ ，所以 $ (x_2,y_2 ) $ 一定不在下凸包内。</p>
 <p>思路很清晰了吧？</p>
 <h3 id="简简单单的代码">简简单单的代码</h3>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
@@ -632,17 +633,17 @@ int main() &#123;
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="问题来了">问题来了</h2>
-<p>若<span class="math inline">\(C_k\)</span>可以小于0呢？又该怎么做？</p>
+<p>若 $ C_k $ 可以小于0呢？又该怎么做？</p>
 <p>这个我们一眼就能看穿这玩意<strong>不满足单调性</strong>。</p>
 <p>假如说考试的时候你不会证斜率的点或者决策有/没有单调性怎么办？</p>
 <p>有两种方法。第一种是打表，多打几组。</p>
 <p>第二种是不管三七二十一直接上不满足单调性时的做法。反正满足单调性的时候不满足单调性时的做法也能用。</p>
 <p>不满足单调性的做法：</p>
 <h3 id="分治">分治</h3>
-<p>我们用<span class="math inline">\(dc(l, r)\)</span>表示计算<span class="math inline">\([l, r]\)</span>中的<span class="math inline">\(dp_i\)</span>。</p>
-<p>对于左半边，我们先用<span class="math inline">\(dc(l, mid)\)</span>算出<span class="math inline">\([l, mid]\)</span>中的<span class="math inline">\(dp_i\)</span>。然后我们就知道了所有的决策点，那么就可以建凸包。然后我们用这个凸包去更新<span class="math inline">\([mid, r]\)</span>中的<span class="math inline">\(dp_i\)</span>。这时的凸包是固定的，所以我们可以把<span class="math inline">\([mid, r]\)</span>的查询斜率排序，然后用单调队列维护。当然也可以直接在凸包上二分。</p>
-<p>对于<span class="math inline">\([mid, r]\)</span>中的每个<span class="math inline">\(dp_i\)</span>，如果它的最优决策点在<span class="math inline">\([1, mid]\)</span>，则上一步已经更新完，如果它的最优决策点不在<span class="math inline">\([l, mid]\)</span>我们也不需要<span class="math inline">\([l, mid]\)</span>的凸包。所以我们可以直接把左边的凸包抛掉，用<span class="math inline">\(dc(mid + 1, r)\)</span>计算之后的<span class="math inline">\(dp_i\)</span>。</p>
-<p><span class="math inline">\(T(n)=2T(\frac{n}{2})+O(n\log n))=O(n\log^2n)\)</span></p>
+<p>我们用 $ dc(l, r) $ 表示计算 $ [l, r] $ 中的 $ dp_i $ 。</p>
+<p>对于左半边，我们先用 $ dc(l, mid) $ 算出 $ [l, mid] $ 中的 $ dp_i $ 。然后我们就知道了所有的决策点，那么就可以建凸包。然后我们用这个凸包去更新 $ [mid, r] $ 中的 $ dp_i $ 。这时的凸包是固定的，所以我们可以把 $ [mid, r] $ 的查询斜率排序，然后用单调队列维护。当然也可以直接在凸包上二分。</p>
+<p>对于 $ [mid, r] $ 中的每个 $ dp_i $ ，如果它的最优决策点在 $ [1, mid] $ ，则上一步已经更新完，如果它的最优决策点不在 $ [l, mid] $ 我们也不需要 $ [l, mid] $ 的凸包。所以我们可以直接把左边的凸包抛掉，用 $ dc(mid + 1, r) $ 计算之后的 $ dp_i $ 。</p>
+<p>$ T(n)=2T()+O(nn))=O(n^2n) $</p>
 <h4 id="代码">代码</h4>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;vector&gt;
 #include &lt;stdio.h&gt;
@@ -851,11 +852,11 @@ int main() &#123;
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="二进制分组">二进制分组</h3>
-<p>我们将所有的点分成若干组，第<span class="math inline">\(i\)</span>组大小为<span class="math inline">\(2^i\)</span>，显然组数不超过<span class="math inline">\(O(\log n)\)</span>。我们维护每组的凸包。</p>
+<p>我们将所有的点分成若干组，第 $ i $ 组大小为 $ 2^i $ ，显然组数不超过 $ O(n) $ 。我们维护每组的凸包。</p>
 <p>插入一个点时，若没有第0组，则将它作为第0组，否则将它和第0组合并。这样我们得到了第1组。接下来如果有第1组，则再将它与第1组合并得到第2组……类似二进制+1的过程。</p>
 <p>查询在每一组分别二分，取最大即可。</p>
 <p>关于时间复杂度：</p>
-<p>显然每个点最多被合并<span class="math inline">\(O(\log ⁡n)\)</span>次。我们合并两个包含<span class="math inline">\(O(n)\)</span>个节点的凸包的时间复杂度是<span class="math inline">\(O(n)\)</span>的，故均摊到每个点上合并的时间复杂度是<span class="math inline">\(O(1)\)</span>，又因为共有<span class="math inline">\(O(n)\)</span>个点，所以总时间复杂度<span class="math inline">\(O(n\log⁡ n)\)</span>。</p>
+<p>显然每个点最多被合并 $ O(⁡n) $ 次。我们合并两个包含 $ O(n) $ 个节点的凸包的时间复杂度是 $ O(n) $ 的，故均摊到每个点上合并的时间复杂度是 $ O(1) $ ，又因为共有 $ O(n) $ 个点，所以总时间复杂度 $ O(n⁡ n) $ 。</p>
 <h4 id="代码-2">代码</h4>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;string.h&gt;
 #include &lt;stdio.h&gt;
@@ -933,7 +934,7 @@ int main() &#123;
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="总结">总结</h2>
-<p>在<span class="math inline">\(dp\)</span>的最小/最大化问题中，将转移方程分成四部分：一部分与<span class="math inline">\(i, j\)</span>都无关，一部分只与<span class="math inline">\(j\)</span>有关，一部分只与<span class="math inline">\(i\)</span>有关，还有一部分和<span class="math inline">\(i, j\)</span>都有关。如果它能写成 <span class="math inline">\(y=kx+b\)</span> 的形式，我们就可以维护一个凸包，来进行状态的转移。</p>
+<p>在 $ dp $ 的最小/最大化问题中，将转移方程分成四部分：一部分与 $ i, j $ 都无关，一部分只与 $ j $ 有关，一部分只与 $ i $ 有关，还有一部分和 $ i, j $ 都有关。如果它能写成 $ y=kx+b $ 的形式，我们就可以维护一个凸包，来进行状态的转移。</p>
 <p><strong>怎么样，你学会(废)了吗</strong></p>
 <h2 id="练习">练习</h2>
 <blockquote>
@@ -1547,7 +1548,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.5k</span>
+                        class="white-color">7.3k</span>
             
             
             
