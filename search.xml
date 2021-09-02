@@ -183,7 +183,7 @@
       <link href="/2021/06/25/hello-world/"/>
       <url>/2021/06/25/hello-world/</url>
       
-        <content type="html"><![CDATA[<h2 id="hello-大家好啊">Hello 大家好啊</h2><p>我是Calm，一个初入博客的蒟蒻，希望大家多多包涵，反馈的问题我都会尽快解决</p><p><strong>谢谢大家</strong></p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;int main() &#123;    printf(&quot;Hello World!\n&quot;);    return 114514; &#x2F;&#x2F;:)&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="hello-大家好啊">Hello 大家好啊</h2><p>我是Honahec，一个蒟蒻</p><p>目前这个博客仍在建设中，如果您有任何想法都可以在<strong>右上方的留言板</strong>中留言或者添加我的QQ，我会及时回复并采纳部分建议</p><p>如果您也想要建设一个属于自己的博客也可以联系我</p><p><strong>谢谢大家</strong></p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;int main() &#123;    printf(&quot;Hello World!\n&quot;);    return 114514; &#x2F;&#x2F;:)&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       <categories>
