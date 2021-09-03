@@ -482,21 +482,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
-<h2 id="思路">思路</h2>
-<p>$ dp $ 题</p>
+                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p> $ dp $ 题</p>
 <p>设 $ dp_{i,j} $ 为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
-<p>很容易得到转移方程 $ f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist $</p>
+<p>很容易得到转移方程 $ f<em>{i,j}=min(f</em>{i-1,j},f<em>{i,j-1},f</em>{i-1,j-1})+dist $ </p>
 <p>其中 $ dist $ 为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/欧几里得度量/1274107?fromtitle=欧几里得距离&amp;fromid=2701459">欧几里得距离</a>的平方</p>
-<p>即 $ (x_1-x_2)<sup>2-(y_1-y_2)</sup>2 $</p>
-<h3 id="注意一下初始化">注意一下初始化：</h3>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
+<p>即 $ (x_1-x_2)^2-(y_1-y_2)^2 $ </p>
+<h3 id="注意一下初始化："><a href="#注意一下初始化：" class="headerlink" title="注意一下初始化："></a>注意一下初始化：</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
 f[0][i] &#x3D; f[i - 1][0] + dist;
 f[0][0] &#x3D; 0; &#x2F;&#x2F;初始位置不消耗能量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>然后这道题就愉快的AC了</p>
-<h2 id="代码">代码</h2>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 #define fo(i,x,y) for(register int i&#x3D;x;i&lt;&#x3D;y;++i)
 #define go(i,x,y) for(register int i&#x3D;x;i&gt;&#x3D;y;--i)
@@ -576,7 +572,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://calm00.github.io/2021/06/25/radio-contact-g/">http://calm00.github.io/2021/06/25/radio-contact-g/</a>
+                    <a href="http://www.honahec.com/2021/06/25/radio-contact-g/">http://www.honahec.com/2021/06/25/radio-contact-g/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1340,7 +1336,7 @@ int main() &#123;
 <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     });
 </script>
 
@@ -1417,7 +1413,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.4k</span>
+                        class="white-color">4.5k</span>
             
             
             

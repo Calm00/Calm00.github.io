@@ -482,20 +482,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接">题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2285">P2285 打鼹鼠</a></p>
-<h2 id="思路">思路</h2>
-<p>很明显，这是一道 $ dp $ 题，因为标签已经告诉我们了（不是</p>
+                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2285">P2285 打鼹鼠</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>很明显，这是一道 $ dp $ 题，因为标签已经告诉我们了（不是</p>
 <p>怎么 $ dp $ 呢？</p>
 <p>棋盘？三维必炸啊，<del>二维本蒟蒻不会</del></p>
 <p>时间？<del>更离谱了</del></p>
 <p>所以就只能从鼹鼠下手了</p>
 <p>设 $ dp_i $ 为到第 $ i $ 只鼹鼠时最多能打到几只</p>
-<p>因为我们要守株待兔（鼠），所以初始化 $ dp_i=1 $</p>
+<p>因为我们要守株待兔（鼠），所以初始化 $ dp_i=1 $ </p>
 <p>若两鼹鼠之间的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/曼哈顿距离/743092?fr=aladdin">曼哈顿距离</a>小于出现时间差</p>
-<p>此时转移方程为 $ dp_i=min(dp[i],dp[j]+1) $</p>
-<h2 id="代码">代码</h2>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<p>此时转移方程为 $ dp_i=min(dp[i],dp[j]+1) $ </p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 #include&lt;cmath&gt;
 #define fo(i,x,y) for(register int i&#x3D;x;i&lt;&#x3D;y;++i)
 #define go(i,x,y) for(register int i&#x3D;x;i&gt;&#x3D;y;--i)
@@ -553,7 +550,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://calm00.github.io/2021/06/25/da-yan-shu/">http://calm00.github.io/2021/06/25/da-yan-shu/</a>
+                    <a href="http://www.honahec.com/2021/06/25/da-yan-shu/">http://www.honahec.com/2021/06/25/da-yan-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1317,7 +1314,7 @@ int main() &#123;
 <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     });
 </script>
 
@@ -1394,7 +1391,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.4k</span>
+                        class="white-color">4.5k</span>
             
             
             

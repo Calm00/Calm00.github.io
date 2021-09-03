@@ -459,7 +459,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    5 分
                 </div>
                 
 
@@ -482,78 +482,67 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="矩阵">矩阵</h1>
-<h2 id="矩阵matrix定义">矩阵(Matrix)定义</h2>
-<p>一个 $ nm $ 的矩阵是一个由 $ n $ 行 $ m $ 列元素排成的矩形阵列。矩阵里的元素可以是数字符号或者数学式。</p>
-形如 $ (
-<span class="math display">\[\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\]</span>
-<p>) $ 的数表称为<strong>二阶矩阵</strong>，它由二行二列组成，其中 $ a,b,c,d $ 称为这个矩阵的元素。</p>
-形如 $ (
-<span class="math display">\[\begin{matrix}x_1\\x_2\end{matrix}\]</span>
-<p>) $ 的有序对称为<strong>列向量(Column Vector)</strong></p>
-<h2 id="矩阵加法">矩阵加法</h2>
-<p>矩阵的加法非常简单</p>
-<p>对，就是你想的那样 <span class="math display">\[
+                <h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="矩阵-Matrix-定义"><a href="#矩阵-Matrix-定义" class="headerlink" title="矩阵(Matrix)定义"></a>矩阵(Matrix)定义</h2><p>一个  $ n\times m $  的矩阵是一个由  $ n $  行  $ m $  列元素排成的矩形阵列。矩阵里的元素可以是数字符号或者数学式。</p>
+<p>形如 $ \left(\begin{matrix}a&amp;b\c&amp;d\end{matrix}\right) $ 的数表称为<strong>二阶矩阵</strong>，它由二行二列组成，其中 $ a,b,c,d $ 称为这个矩阵的元素。</p>
+<p>形如 $ \left(\begin{matrix}x_1\x_2\end{matrix}\right) $ 的有序对称为<strong>列向量(Column Vector)</strong></p>
+<h2 id="矩阵加法"><a href="#矩阵加法" class="headerlink" title="矩阵加法"></a>矩阵加法</h2><p>矩阵的加法非常简单</p>
+<p>对，就是你想的那样</p>
+<script type="math/tex; mode=display">
 \left(
 \begin{matrix}
-a_{1,1}&amp;a_{1,2}&amp;\cdots&amp;a_{1,m}\\a_{2,1}&amp;a_{2,1}&amp;\cdots&amp;a_{2,m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\a_{n,1}&amp;a_{n,2}&amp;\cdots&amp;a_{n,m}
+a_{1,1}&a_{1,2}&\cdots&a_{1,m}\\a_{2,1}&a_{2,1}&\cdots&a_{2,m}\\\vdots&\vdots&&\vdots\\a_{n,1}&a_{n,2}&\cdots&a_{n,m}
 \end{matrix}
 \right)\pm
 \left(
 \begin{matrix}
-b_{1,1}&amp;b_{1,2}&amp;\cdots&amp;b_{1,m}\\b_{2,1}&amp;b_{2,1}&amp;\cdots&amp;b_{2,m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\b_{n,1}&amp;b_{n,2}&amp;\cdots&amp;b_{n,m}
+b_{1,1}&b_{1,2}&\cdots&b_{1,m}\\b_{2,1}&b_{2,1}&\cdots&b_{2,m}\\\vdots&\vdots&&\vdots\\b_{n,1}&b_{n,2}&\cdots&b_{n,m}
 \end{matrix}
 \right)=
 \left(
 \begin{matrix}
-a_{1,1}\pm b_{1,1}&amp;a_{1,2}\pm b_{1,2}&amp;\cdots&amp;a_{1,m}\pm b_{1,m}\\a_{2,1}\pm b_{2,1}&amp;a_{2,1}\pm b_{2,2}&amp;\cdots&amp;a_{2,m}\pm b_{2, m}\\\vdots&amp;\vdots&amp;&amp;\vdots\\a_{n,1}\pm b_{n,1}&amp;a_{n,1}\pm b_{n,2}&amp;\cdots&amp;a_{n,m}\pm b_{n,m}
+a_{1,1}\pm b_{1,1}&a_{1,2}\pm b_{1,2}&\cdots&a_{1,m}\pm b_{1,m}\\a_{2,1}\pm b_{2,1}&a_{2,1}\pm b_{2,2}&\cdots&a_{2,m}\pm b_{2, m}\\\vdots&\vdots&&\vdots\\a_{n,1}\pm b_{n,1}&a_{n,1}\pm b_{n,2}&\cdots&a_{n,m}\pm b_{n,m}
 \end{matrix}
-\right)
-\]</span></p>
-<p>注意：两个矩阵必须为<strong>同型矩阵</strong>(即必须都是 $ nm $ 的矩阵)才能相加</p>
+\right)</script><p>注意：两个矩阵必须为<strong>同型矩阵</strong>(即必须都是  $ n\times m $  的矩阵)才能相加</p>
 <p>并且，矩阵加减法<strong>满足</strong>交换律和结合律(即 $ A+B=B+A $ ， $ (A+B)+C=A+(B+C) $ )</p>
-<h2 id="矩阵乘法">矩阵乘法</h2>
-<p>矩阵乘法<strong>稍有</strong>不同</p>
+<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>矩阵乘法<strong>稍有</strong>不同</p>
 <p>嗯，真的只有一点不同</p>
-<p>如果有矩阵 $ A $ 大小为 $ nm $ ，矩阵 $ B $ 大小为 $ ms $ ，相乘为矩阵 $ C $ ，矩阵 $ C $ 的大小一定为 $ ns $</p>
-<p>矩阵乘法遵循 $ C=<em>{k=1}^{m}a</em>{i,k}b_{k,j} $</p>
+<p>如果有矩阵  $ A $  大小为  $ n\times m $  ，矩阵  $ B $  大小为  $ m\times s $  ，相乘为矩阵  $ C $ ，矩阵  $ C $  的大小一定为  $ n\times s $ </p>
+<p>矩阵乘法遵循  $ C=\sum<em>{k=1}^{m}a</em>{i,k}b_{k,j} $ </p>
 <p>嗯，只有一点</p>
-<h3 id="举个例子">举个例子</h3>
-<p>设 <span class="math display">\[
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>设</p>
+<script type="math/tex; mode=display">
 \begin{align}
-A&amp;=\left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right)\\\\
-B&amp;=\left(\begin{matrix}x_1\\x_2\end{matrix}\right)\\
-\end{align}
-\]</span></p>
-<p>则 <span class="math display">\[
+A&=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\\\\
+B&=\left(\begin{matrix}x_1\\x_2\end{matrix}\right)\\
+\end{align}</script><p>则</p>
+<script type="math/tex; mode=display">
 \begin{align}
-C=AB&amp;=\left(\begin{matrix}ax_1+bx_2\\cx_1+dx_2\end{matrix}\right)\\
-\end{align}
-\]</span> 称为二阶矩阵 $ A $ 与平面向量 $ B $ 的乘积，记为 $ AB=C $</p>
-<h2 id="利用矩阵求斐波那契fibonacci数列">利用矩阵求斐波那契(Fibonacci)数列</h2>
-<p>众所周知，斐波那契数列从第三项开始，每一项都是前两项之和</p>
-<p>即 $ F_n=F_{n-1}+F_{n-2},n $</p>
-<p>特别的 $ F_0=0,F_1=F_2=1 $</p>
-<p>把斐波那契数列中相邻的两项( $ F_n $ 和 $ F_{n-1} $ )写成一个 $ 2 $ 的矩阵 <span class="math display">\[
+C=AB&=\left(\begin{matrix}ax_1+bx_2\\cx_1+dx_2\end{matrix}\right)\\
+\end{align}</script><p>称为二阶矩阵  $ A $  与平面向量  $ B $  的乘积，记为  $ AB=C $ </p>
+<h2 id="利用矩阵求斐波那契-Fibonacci-数列"><a href="#利用矩阵求斐波那契-Fibonacci-数列" class="headerlink" title="利用矩阵求斐波那契(Fibonacci)数列"></a>利用矩阵求斐波那契(Fibonacci)数列</h2><p>众所周知，斐波那契数列从第三项开始，每一项都是前两项之和</p>
+<p>即 $ F<em>n=F</em>{n-1}+F_{n-2},n\geq3 $ </p>
+<p>特别的 $ F_0=0,F_1=F_2=1 $ </p>
+<p>把斐波那契数列中相邻的两项(  $ F<em>n $  和  $ F</em>{n-1} $  )写成一个 $ 2\times1 $ 的矩阵</p>
+<script type="math/tex; mode=display">
 \begin{align}
-&amp;=\left(
+&=\left(
 \begin{matrix}
 F_n\\ F_{n-1}
 \end{matrix}
 \right)\\\\
-&amp;=\left(
+&=\left(
 \begin{matrix}
 F_{n-1}+F_{n-2}\\ F_{n-1}
 \end{matrix}
 \right)\\\\
-&amp;=\left(
+&=\left(
 \begin{matrix}
 1\times F_{n-1}+1\times F_{n-2}\\ 1\times F_{n-1}+0\times F_{n-2}
 \end{matrix}
 \right)\\\\
-&amp;=\left(
+&=\left(
 \begin{matrix}
-1&amp;1\\ 1&amp;0
+1&1\\ 1&0
 \end{matrix}
 \right)
 \times \left(
@@ -561,9 +550,9 @@ F_{n-1}+F_{n-2}\\ F_{n-1}
 F_{n-1}\\ F_{n-2}
 \end{matrix}
 \right)\\\\
-&amp;=\left(
+&=\left(
 \begin{matrix}
-1&amp;1\\ 1&amp;0
+1&1\\ 1&0
 \end{matrix}
 \right)^{n-1}
 \times \left(
@@ -571,9 +560,9 @@ F_{n-1}\\ F_{n-2}
 F_1\\ F_0
 \end{matrix}
 \right)\\\\
-&amp;=\left(
+&=\left(
 \begin{matrix}
-1&amp;1\\ 1&amp;0
+1&1\\ 1&0
 \end{matrix}
 \right)^{n-1}
 \times \left(
@@ -581,36 +570,30 @@ F_1\\ F_0
 1\\ 0
 \end{matrix}
 \right)
-\end{align}
-\]</span> 求 $ F_n $ 等同于求二阶矩阵的 $ n-1 $ 次方，结果取矩阵第一行元素。</p>
-<p>问题转换为二阶矩阵的 $ n $ 次幂</p>
-<h3 id="求二阶矩阵的-n-次幂">求二阶矩阵的 $ N $ 次幂</h3>
-<p>这里可以回顾一下<a href="#矩阵乘法">矩阵乘法</a></p>
-<p><strong>假设计算矩阵 $ A $ 的 $ N $ 次幂</strong></p>
-<h4 id="方法一">方法一</h4>
-<p>二阶矩阵的乘法满足结合律</p>
+\end{align}</script><p>求  $ F_n $  等同于求二阶矩阵的  $ n-1 $  次方，结果取矩阵第一行元素。</p>
+<p>问题转换为二阶矩阵的  $ n $  次幂</p>
+<h3 id="求二阶矩阵的-N-次幂"><a href="#求二阶矩阵的-N-次幂" class="headerlink" title="求二阶矩阵的  $ N $  次幂"></a>求二阶矩阵的  $ N $  次幂</h3><p>这里可以回顾一下<a href="#矩阵乘法">矩阵乘法</a></p>
+<p><strong>假设计算矩阵  $ A $  的  $ N $  次幂</strong></p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>二阶矩阵的乘法满足结合律</p>
 <p>设 $ A,B,C $ 都是任意的二阶矩阵</p>
-<p>则 $ A(BC)=(AB)C $</p>
+<p>则 $ A(BC)=(AB)C $ </p>
 <blockquote>
 <p>不在此证明</p>
 </blockquote>
-<p>设 $ n=N $ (结果向下取整)</p>
-<p>若 $ N2k $ 则 $ A<sup>N=A</sup>nA^n $</p>
-<p>若 $ N2k+1 $ 则 $ A<sup>N=A</sup>nA^nA $</p>
+<p>设 $ n=N\div 2 $  (结果向下取整)</p>
+<p>若  $ N\in 2k $  则  $ A^N=A^n\times A^n $ </p>
+<p>若  $ N\in 2k+1 $  则  $ A^N=A^n\times A^n\times A $ </p>
 <blockquote>
 <p>这样可以减少计算次数，自行思考原因</p>
 </blockquote>
-<h4 id="方法二">方法二</h4>
-<p>以计算 $ A^6 $ 为例</p>
-<p>例如 $ 6_{(10)}=110_{(2)} $</p>
-<p>则 $ A<sup>6=A</sup>4A^2 $</p>
-<figure>
-<img src="https://z3.ax1x.com/2021/06/15/2qY2uV.png" alt="二进制位" /><figcaption aria-hidden="true">二进制位</figcaption>
-</figure>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>以计算  $ A^6 $  为例</p>
+<p>例如 $ 6<em>{(10)}=110</em>{(2)} $ </p>
+<p>则  $ A^6=A^4\times A^2 $ </p>
+<p><img src="https://z3.ax1x.com/2021/06/15/2qY2uV.png" alt="二进制位"></p>
 <p>上图显示二进制与幂的指数关系</p>
 <p>二进位为1需要乘，为0不需要乘</p>
-<p>再例如 $ 7_{(10)}=111_{(2)} $</p>
-<p>则 $ A<sup>7=A</sup>4A<sup>2A</sup>1 $</p>
+<p>再例如 $ 7<em>{(10)}=111</em>{(2)} $ </p>
+<p>则 $ A^7=A^4\times A^2\times A^1 $ </p>
 <p>先随随便便写一个求快速幂的代码(<del>相信大家都会写吧</del></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int qpow(int a, int k) &#123;
     int res &#x3D; 1;
@@ -622,8 +605,7 @@ F_1\\ F_0
     return res;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>那么到底怎么用矩阵求斐波那契数列呢？</p>
-<h3 id="代码">代码</h3>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 #include&lt;cstring&gt;
 
 struct Matrix &#123;
@@ -690,7 +672,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://calm00.github.io/2021/06/25/ju-zhen/">http://calm00.github.io/2021/06/25/ju-zhen/</a>
+                    <a href="http://www.honahec.com/2021/06/25/ju-zhen/">http://www.honahec.com/2021/06/25/ju-zhen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1454,7 +1436,7 @@ int main() &#123;
 <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     });
 </script>
 
@@ -1531,7 +1513,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.4k</span>
+                        class="white-color">4.5k</span>
             
             
             
