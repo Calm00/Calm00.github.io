@@ -483,8 +483,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="矩阵-Matrix-定义"><a href="#矩阵-Matrix-定义" class="headerlink" title="矩阵(Matrix)定义"></a>矩阵(Matrix)定义</h2><p>一个  $ n\times m $  的矩阵是一个由  $ n $  行  $ m $  列元素排成的矩形阵列。矩阵里的元素可以是数字符号或者数学式。</p>
-<p>形如 $ \left(\begin{matrix}a&amp;b\c&amp;d\end{matrix}\right) $ 的数表称为<strong>二阶矩阵</strong>，它由二行二列组成，其中 $ a,b,c,d $ 称为这个矩阵的元素。</p>
-<p>形如 $ \left(\begin{matrix}x_1\x_2\end{matrix}\right) $ 的有序对称为<strong>列向量(Column Vector)</strong></p>
+<p>形如 $ \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right) $ 的数表称为<strong>二阶矩阵</strong>，它由二行二列组成，其中 $ a,b,c,d $ 称为这个矩阵的元素。</p>
+<p>形如 $ \left(\begin{matrix}x_1\\x_2\end{matrix}\right) $ 的有序对称为<strong>列向量(Column Vector)</strong></p>
 <h2 id="矩阵加法"><a href="#矩阵加法" class="headerlink" title="矩阵加法"></a>矩阵加法</h2><p>矩阵的加法非常简单</p>
 <p>对，就是你想的那样</p>
 <script type="math/tex; mode=display">
@@ -507,7 +507,7 @@ a_{1,1}\pm b_{1,1}&a_{1,2}\pm b_{1,2}&\cdots&a_{1,m}\pm b_{1,m}\\a_{2,1}\pm b_{2
 <h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>矩阵乘法<strong>稍有</strong>不同</p>
 <p>嗯，真的只有一点不同</p>
 <p>如果有矩阵  $ A $  大小为  $ n\times m $  ，矩阵  $ B $  大小为  $ m\times s $  ，相乘为矩阵  $ C $ ，矩阵  $ C $  的大小一定为  $ n\times s $ </p>
-<p>矩阵乘法遵循  $ C=\sum<em>{k=1}^{m}a</em>{i,k}b_{k,j} $ </p>
+<p>矩阵乘法遵循  $ C=\sum_{k=1}^{m}a_{i,k}b_{k,j} $ </p>
 <p>嗯，只有一点</p>
 <h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>设</p>
 <script type="math/tex; mode=display">
@@ -520,9 +520,9 @@ B&=\left(\begin{matrix}x_1\\x_2\end{matrix}\right)\\
 C=AB&=\left(\begin{matrix}ax_1+bx_2\\cx_1+dx_2\end{matrix}\right)\\
 \end{align}</script><p>称为二阶矩阵  $ A $  与平面向量  $ B $  的乘积，记为  $ AB=C $ </p>
 <h2 id="利用矩阵求斐波那契-Fibonacci-数列"><a href="#利用矩阵求斐波那契-Fibonacci-数列" class="headerlink" title="利用矩阵求斐波那契(Fibonacci)数列"></a>利用矩阵求斐波那契(Fibonacci)数列</h2><p>众所周知，斐波那契数列从第三项开始，每一项都是前两项之和</p>
-<p>即 $ F<em>n=F</em>{n-1}+F_{n-2},n\geq3 $ </p>
+<p>即 $ F_n=F_{n-1}+F_{n-2},n\geq3 $ </p>
 <p>特别的 $ F_0=0,F_1=F_2=1 $ </p>
-<p>把斐波那契数列中相邻的两项(  $ F<em>n $  和  $ F</em>{n-1} $  )写成一个 $ 2\times1 $ 的矩阵</p>
+<p>把斐波那契数列中相邻的两项(  $ F_n $  和  $ F_{n-1} $  )写成一个 $ 2\times1 $ 的矩阵</p>
 <script type="math/tex; mode=display">
 \begin{align}
 &=\left(
@@ -587,12 +587,12 @@ F_1\\ F_0
 <p>这样可以减少计算次数，自行思考原因</p>
 </blockquote>
 <h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>以计算  $ A^6 $  为例</p>
-<p>例如 $ 6<em>{(10)}=110</em>{(2)} $ </p>
+<p>例如 $ 6_{(10)}=110_{(2)} $ </p>
 <p>则  $ A^6=A^4\times A^2 $ </p>
 <p><img src="https://z3.ax1x.com/2021/06/15/2qY2uV.png" alt="二进制位"></p>
 <p>上图显示二进制与幂的指数关系</p>
 <p>二进位为1需要乘，为0不需要乘</p>
-<p>再例如 $ 7<em>{(10)}=111</em>{(2)} $ </p>
+<p>再例如 $ 7_{(10)}=111_{(2)} $ </p>
 <p>则 $ A^7=A^4\times A^2\times A^1 $ </p>
 <p>先随随便便写一个求快速幂的代码(<del>相信大家都会写吧</del></p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int qpow(int a, int k) &#123;
@@ -1789,6 +1789,21 @@ $(function () {
 	<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
 	</script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>

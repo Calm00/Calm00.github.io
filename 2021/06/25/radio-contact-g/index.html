@@ -485,7 +485,7 @@
                 <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p> $ dp $ 题</p>
 <p>设 $ dp_{i,j} $ 为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
-<p>很容易得到转移方程 $ f<em>{i,j}=min(f</em>{i-1,j},f<em>{i,j-1},f</em>{i-1,j-1})+dist $ </p>
+<p>很容易得到转移方程 $ f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist $ </p>
 <p>其中 $ dist $ 为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/欧几里得度量/1274107?fromtitle=欧几里得距离&amp;fromid=2701459">欧几里得距离</a>的平方</p>
 <p>即 $ (x_1-x_2)^2-(y_1-y_2)^2 $ </p>
 <h3 id="注意一下初始化："><a href="#注意一下初始化：" class="headerlink" title="注意一下初始化："></a>注意一下初始化：</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
@@ -1689,6 +1689,21 @@ $(function () {
 	<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
 	</script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>
