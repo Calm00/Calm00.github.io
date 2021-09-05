@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-03
+                    2021-09-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    23 分
                 </div>
                 
 
@@ -583,8 +583,8 @@ y&=kx+b
 <h4 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h4><p>现在我们知道了最优决策点一定在下凸包上</p>
 <p>那么我们怎么找最优决策点呢？</p>
 <p>首先我们易得下凸包中所有线的斜率一定是<strong>单调递增</strong>的</p>
-<p>如果存在三个下凸包中的点 $ (x_1,y_1 ) $ ， $ (x_2,y_2 ) $ ， $ (x_3,y_3 ) $ 使得 $ x_1<x_2<x_3 $ 且 $ \frac{y_2-y_1}{x_2-x_1}>\frac{y_3-y_2}{x_3-x_2} $ ，则 $ y_2 - \frac{y_3-y_1}{x_3-x_1} x_2 - \frac{x_3 y_1-x_1 y_3}{x_3-x_1} = \frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1} $  </p>
-<p>又因为 $ x_1<x_2<x_3 $ ，所以 $ x_2-x_1>0 $ ， $ x_3-x_2&gt;0 $ ， $ x_3-x_1&gt;0 $ </p>
+<p>如果存在三个下凸包中的点 $ (x_1,y_1 ) $ ， $ (x_2,y_2 ) $ ， $ (x_3,y_3 ) $ 使得 $ x_1 &lt; x_2 &lt; x_3 $ 且 $ \frac{y_2-y_1}{x_2-x_1} &gt; \frac{y_3-y_2}{x_3-x_2} $ ，则 $ y_2 - \frac{y_3-y_1}{x_3-x_1} x_2 - \frac{x_3 y_1-x_1 y_3}{x_3-x_1} = \frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1} $  </p>
+<p>又因为 $ x_1 &lt; x_2 &lt; x_3 $ ，所以 $ x_2-x_1 &gt; 0 $ ， $ x_3-x_2 &gt; 0 $ ， $ x_3-x_1 &gt; 0 $ </p>
 <p>故 $ (y_2-y_1 )(x_3-x_2 )&gt;(y_3-y_2 )(x_2-x_1 ) $ ，即 $ x_2 y_1-x_3 y_1+x_3 y_2&gt;x_1 y_2-x_1 y_3+x_2 y_3 $ </p>
 <p>所以 $ \frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}&gt;0 $ ，故 $ y_2&gt;\frac{y_3-y_1}{x_3-x_1} x_2+\frac{x_3 y_1-x_1 y_3}{x_3-x_1} $ ，所以 $ (x_2,y_2 ) $ 一定不在下凸包内。</p>
 <p>思路很清晰了吧？</p>
@@ -1789,7 +1789,7 @@ int main() &#123;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">4.5k</span>
+                        class="white-color">7.5k</span>
             
             
             
@@ -2077,21 +2077,6 @@ $(function () {
 	<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
 	</script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>
