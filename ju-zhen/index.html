@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="有理数取余, Honahec">
+    <meta name="keywords" content="矩阵, Honahec">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>有理数取余 | Honahec</title>
+    <title>矩阵 | Honahec</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -292,12 +292,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">有理数取余</h1>
+                    <h1 class="description center-align post-title">矩阵</h1>
                 </div>
             </div>
         </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                题解
+                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                教程
                             </a>
                         
                     </div>
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    837
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -482,100 +482,170 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2613">P2613 【模板】有理数取余</a></p>
-<h3 id="题目非常简单易懂"><a href="#题目非常简单易懂" class="headerlink" title="题目非常简单易懂"></a>题目非常简单易懂</h3><p>给出一个有理数 $ c=\frac{a}{b} $，求 $ c\bmod19260817 $  的值。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>看到这道题时</p>
-<ul>
-<li>第一眼：好像很简单啊</li>
-<li>第二眼：$ a,b\leq10^{10001} $？！！</li>
-<li>第三眼：卧槽这啥玩意？！！</li>
-</ul>
-<p>要做这道题，我们来介绍一个新的东西<del>（主要是本蒟蒻不会<code>exgcd</code>（欧几里得扩展）</del></p>
-<h3 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h3><blockquote>
-<p>P 是一个质数</p>
-</blockquote>
-<p>令 $ b’ $ 为 $ b $ 的逆元，那么有$ b\times b’\equiv1\,(mod\,P) $</p>
-<p>有 $ \frac{a}{b}\equiv\frac{a}{b}\times1\equiv\frac{a}{b}\times(b\times b’)\equiv a\times b’\,(mod\,P) $ </p>
-<p>显然可以看出 $ b’ $ 的值为 $ \frac{1}{b} $ </p>
-<p>但是除以 $ b $ 与乘以 $ \frac{1}{b} $ 是一样的啊，怎么办呢？</p>
-<h3 id="费马小定理闪亮登场"><a href="#费马小定理闪亮登场" class="headerlink" title="费马小定理闪亮登场"></a>费马小定理闪亮登场</h3><p><strong>定理内容：如果 $ p$  是一个质数，而整数 $ a$  不是 $ p$  的倍数，则有$ a^{p-1}\equiv1\,(mod\,p) $</strong></p>
-<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p><strong>你可以选择<a href="#toc-heading-7">跳过</a>这部分</strong></p>
+                <h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="矩阵-Matrix-定义"><a href="#矩阵-Matrix-定义" class="headerlink" title="矩阵(Matrix)定义"></a>矩阵(Matrix)定义</h2><p>一个  $ n\times m $  的矩阵是一个由  $ n $  行  $ m $  列元素排成的矩形阵列。矩阵里的元素可以是数字符号或者数学式。</p>
+<p>形如 $ \left(\begin{matrix}a&amp;b\\c&amp;d\end{matrix}\right) $ 的数表称为<strong>二阶矩阵</strong>，它由二行二列组成，其中 $ a,b,c,d $ 称为这个矩阵的元素。</p>
+<p>形如 $ \left(\begin{matrix}x_1\\x_2\end{matrix}\right) $ 的有序对称为<strong>列向量(Column Vector)</strong></p>
+<h2 id="矩阵加法"><a href="#矩阵加法" class="headerlink" title="矩阵加法"></a>矩阵加法</h2><p>矩阵的加法非常简单</p>
+<p>对，就是你想的那样</p>
+<script type="math/tex; mode=display">
+\left(
+\begin{matrix}
+a_{1,1}&a_{1,2}&\cdots&a_{1,m}\\a_{2,1}&a_{2,1}&\cdots&a_{2,m}\\\vdots&\vdots&&\vdots\\a_{n,1}&a_{n,2}&\cdots&a_{n,m}
+\end{matrix}
+\right)\pm
+\left(
+\begin{matrix}
+b_{1,1}&b_{1,2}&\cdots&b_{1,m}\\b_{2,1}&b_{2,1}&\cdots&b_{2,m}\\\vdots&\vdots&&\vdots\\b_{n,1}&b_{n,2}&\cdots&b_{n,m}
+\end{matrix}
+\right)=
+\left(
+\begin{matrix}
+a_{1,1}\pm b_{1,1}&a_{1,2}\pm b_{1,2}&\cdots&a_{1,m}\pm b_{1,m}\\a_{2,1}\pm b_{2,1}&a_{2,1}\pm b_{2,2}&\cdots&a_{2,m}\pm b_{2, m}\\\vdots&\vdots&&\vdots\\a_{n,1}\pm b_{n,1}&a_{n,1}\pm b_{n,2}&\cdots&a_{n,m}\pm b_{n,m}
+\end{matrix}
+\right)</script><p>注意：两个矩阵必须为<strong>同型矩阵</strong>(即必须都是  $ n\times m $  的矩阵)才能相加</p>
+<p>并且，矩阵加减法<strong>满足</strong>交换律和结合律(即 $ A+B=B+A $ ， $ (A+B)+C=A+(B+C) $ )</p>
+<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>矩阵乘法<strong>稍有</strong>不同</p>
+<p>嗯，真的只有一点不同</p>
+<p>如果有矩阵  $ A $  大小为  $ n\times m $  ，矩阵  $ B $  大小为  $ m\times s $  ，相乘为矩阵  $ C $ ，矩阵  $ C $  的大小一定为  $ n\times s $ </p>
+<p>矩阵乘法遵循  $ C=\sum_{k=1}^{m}a_{i,k}b_{k,j} $ </p>
+<p>嗯，只有一点</p>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>设</p>
+<script type="math/tex; mode=display">
+\begin{align}
+A&=\left(\begin{matrix}a&b\\c&d\end{matrix}\right)\\\\
+B&=\left(\begin{matrix}x_1\\x_2\end{matrix}\right)\\
+\end{align}</script><p>则</p>
+<script type="math/tex; mode=display">
+\begin{align}
+C=AB&=\left(\begin{matrix}ax_1+bx_2\\cx_1+dx_2\end{matrix}\right)\\
+\end{align}</script><p>称为二阶矩阵  $ A $  与平面向量  $ B $  的乘积，记为  $ AB=C $ </p>
+<h2 id="利用矩阵求斐波那契-Fibonacci-数列"><a href="#利用矩阵求斐波那契-Fibonacci-数列" class="headerlink" title="利用矩阵求斐波那契(Fibonacci)数列"></a>利用矩阵求斐波那契(Fibonacci)数列</h2><p>众所周知，斐波那契数列从第三项开始，每一项都是前两项之和</p>
+<p>即 $ F_n=F_{n-1}+F_{n-2},n\geq3 $ </p>
+<p>特别的 $ F_0=0,F_1=F_2=1 $ </p>
+<p>把斐波那契数列中相邻的两项(  $ F_n $  和  $ F_{n-1} $  )写成一个 $ 2\times1 $ 的矩阵</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&=\left(
+\begin{matrix}
+F_n\\ F_{n-1}
+\end{matrix}
+\right)\\\\
+&=\left(
+\begin{matrix}
+F_{n-1}+F_{n-2}\\ F_{n-1}
+\end{matrix}
+\right)\\\\
+&=\left(
+\begin{matrix}
+1\times F_{n-1}+1\times F_{n-2}\\ 1\times F_{n-1}+0\times F_{n-2}
+\end{matrix}
+\right)\\\\
+&=\left(
+\begin{matrix}
+1&1\\ 1&0
+\end{matrix}
+\right)
+\times \left(
+\begin{matrix}
+F_{n-1}\\ F_{n-2}
+\end{matrix}
+\right)\\\\
+&=\left(
+\begin{matrix}
+1&1\\ 1&0
+\end{matrix}
+\right)^{n-1}
+\times \left(
+\begin{matrix}
+F_1\\ F_0
+\end{matrix}
+\right)\\\\
+&=\left(
+\begin{matrix}
+1&1\\ 1&0
+\end{matrix}
+\right)^{n-1}
+\times \left(
+\begin{matrix}
+1\\ 0
+\end{matrix}
+\right)
+\end{align}</script><p>求  $ F_n $  等同于求二阶矩阵的  $ n-1 $  次方，结果取矩阵第一行元素。</p>
+<p>问题转换为二阶矩阵的  $ n $  次幂</p>
+<h3 id="求二阶矩阵的-N-次幂"><a href="#求二阶矩阵的-N-次幂" class="headerlink" title="求二阶矩阵的  $ N $  次幂"></a>求二阶矩阵的  $ N $  次幂</h3><p>这里可以回顾一下<a href="#toc-heading-3">矩阵乘法</a></p>
+<p><strong>假设计算矩阵  $ A $  的  $ N $  次幂</strong></p>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>二阶矩阵的乘法满足结合律</p>
+<p>设 $ A,B,C $ 都是任意的二阶矩阵</p>
+<p>则 $ A(BC)=(AB)C $ </p>
 <blockquote>
-<p> 证明部分 $ p $ 是一个质数</p>
+<p>不在此证明</p>
 </blockquote>
-<h5 id="第一个证明"><a href="#第一个证明" class="headerlink" title="第一个证明"></a>第一个证明</h5><p>首先我们考虑一个前置定理：</p>
-<p>若$ gcd(c,p)=1 $，且$ ac\equiv bc\,(mod\,p) $，那么有$ a\equiv b\,(mod\,p) $</p>
-<p><strong>证：</strong></p>
-<script type="math/tex; mode=display">
-\begin{align}
-&\because ac\equiv bc\,(mod\,p)\\
-&\therefore (a-b)c\equiv 0\,(mod\,p)\\
-&\therefore (a-b)c\,是\,p\,的整数倍\\
-又&\because gcd(c,p)=1\\
-&\therefore a-b\equiv0\,(mod\,p)\\
-&即a\equiv b\,(mod\,p)
-\end{align}</script><p><strong>证毕</strong></p>
-<h5 id="第二个证明"><a href="#第二个证明" class="headerlink" title="第二个证明"></a>第二个证明</h5><p>然后我们进入正题，假设有正整数$ a(a&lt;p) $ 满足条件$ gcd(a,p)=1 $，那么我们将 $ a $ 乘上 $ 1\thicksim p-1 $ 后可以构成一个 $ mod\,p $ 的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AE%8C%E5%85%A8%E5%89%A9%E4%BD%99%E7%B3%BB">完全剩余系</a></p>
-<p><strong>证：</strong></p>
-<script type="math/tex; mode=display">
-\begin{align}
-&假设存在xa\equiv ya\,(mod\,p),且x\neq y\\
-&\because gcd(a,p)=1\\
-&\therefore 原式成立当且仅当x\equiv y\,(mod\,p)\\
-又&\because x,y\in [1,p-1]\\
-&\therefore x\equiv y\,(mod\,p)当且仅当x=y,与已知条件矛盾\\
-&\therefore 假设不成立，原命题成立
-\end{align}</script><p><strong>证毕</strong></p>
-<h5 id="第三个证明"><a href="#第三个证明" class="headerlink" title="第三个证明"></a>第三个证明</h5><p>接下来证明 $ a^{p-1}\equiv1\,(mod\,p) $ </p>
-<p><strong>证：</strong></p>
-<script type="math/tex; mode=display">
-\begin{align}
-&\because 1,2,\cdots,p-1是\,mod\,p\,的完全剩余系\\
-&\therefore有1\times2\times\cdots\times p-1\equiv a\times2a\times\cdots\times (p-1)a\,(mod\,p)\\
-&即 (p-1)!\equiv (p-1)!\times a^{p-1}\,(mod\,p)\\
-又&\because p是质数\\
-&\therefore gcd((p-1)!,p)=1\\
-&\therefore a^{p-1}\equiv1\,(mod\,p)
-\end{align}</script><p><strong>证毕</strong></p>
-<h4 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h4><p>根据费马小定理，显然 $ b’=b^{P-2} $ </p>
-<p>什么？不显然吗？</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\because b'\times b&\equiv1\,(mod\,P)\\
-b^{P-1}&\equiv1\,(mod\,P)\\
-\therefore b'\times b&\equiv b^{P-1}\,(mod\,P)\\
-\therefore b'&=b^{P-2}
-\end{align}</script><p>那么 $ \frac{a}{b}=a\times b^{P-2} $ </p>
-<p>然后我们就可以用快速幂轻松A掉这题了（$ ps$ ：虽然快速幂让我们不需要高精了，但<code>long long</code>还是要的</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+<p>设 $ n=N\div 2 $  (结果向下取整)</p>
+<p>若  $ N\in 2k $  则  $ A^N=A^n\times A^n $ </p>
+<p>若  $ N\in 2k+1 $  则  $ A^N=A^n\times A^n\times A $ </p>
+<blockquote>
+<p>这样可以减少计算次数，自行思考原因</p>
+</blockquote>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>以计算  $ A^6 $  为例</p>
+<p>例如 $ 6_{(10)}=110_{(2)} $ </p>
+<p>则  $ A^6=A^4\times A^2 $ </p>
+<p><img src="https://z3.ax1x.com/2021/06/15/2qY2uV.png" alt="二进制位"></p>
+<p>上图显示二进制与幂的指数关系</p>
+<p>二进位为1需要乘，为0不需要乘</p>
+<p>再例如 $ 7_{(10)}=111_{(2)} $ </p>
+<p>则 $ A^7=A^4\times A^2\times A^1 $ </p>
+<p>先随随便便写一个求快速幂的代码(<del>相信大家都会写吧</del></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int qpow(int a, int k) &#123;
+    int res &#x3D; 1;
+    while(k) &#123;
+        if(a &amp; 1) res *&#x3D; a;
+        k &gt;&gt;&#x3D; 1;
+        a *&#x3D; a;
+    &#125;
+    return res;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>那么到底怎么用矩阵求斐波那契数列呢？</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
 
-const int MOD &#x3D; 19260817;
+struct Matrix &#123;
+	long long fib[2][2];
+	Matrix() &#123;memset(fib, 0, sizeof fib);&#125;
+&#125;;
 
-inline long long read() &#123;
-	long long X &#x3D; 0, flag &#x3D; 1; char ch &#x3D; getchar();
-	while(ch &lt; &#39;0&#39; || ch &gt; &#39;9&#39;) &#123;if(ch &#x3D;&#x3D; &#39;-&#39;) flag &#x3D; 0; ch&#x3D;getchar();&#125;
-	while(ch &gt;&#x3D; &#39;0&#39; &amp;&amp; ch &lt;&#x3D; &#39;9&#39;) &#123;X &#x3D; (X * 10 + (ch ^ 48)) % MOD; ch &#x3D; getchar();&#125;
-	return flag ? X : -X;
+Matrix qmul(Matrix &amp;a, Matrix &amp;b) &#123;
+	Matrix c;
+	for(int i &#x3D; 0; i &lt; 2; ++i) &#123;
+		for(int j &#x3D; 0; j &lt; 2; ++j) &#123;
+			for(int k &#x3D; 0; k &lt; 2; ++k) &#123;
+				c.fib[i][j] +&#x3D; a.fib[i][k] * b.fib[k][j];
+			&#125;
+		&#125;
+	&#125;
+	return c;
 &#125;
 
-long long a, b;
-
-long long QuickPow(long long x, long long y) &#123;
-	long long ans &#x3D; 1, k &#x3D; MOD - 2;
+Matrix qpow(Matrix a, long long k) &#123;
+	Matrix ans;
+	ans.fib[0][0] &#x3D; ans.fib[1][1] &#x3D; 1;
 	while(k) &#123;
-		if(k &amp; 1) ans &#x3D; ans * x % MOD;
-		x &#x3D; x * x % MOD;
+		if(k &amp; 1) ans &#x3D; qmul(ans, a);
+		a &#x3D; qmul(a, a);
 		k &gt;&gt;&#x3D; 1;
 	&#125;
-	return ans * y % MOD;
-&#125;&#x2F;&#x2F;快速幂不建议这样写，还是用模板比较好
+	return ans;
+&#125;
 
 int main() &#123;
-	a &#x3D; read(); b &#x3D; read();
-	if(b) printf(&quot;%lld\n&quot;, QuickPow(b, a));
-	else printf(&quot;Angry!\n&quot;);
+	long long n;
+	Matrix a, b;
+	scanf(&quot;%lld&quot;, &amp;n);
+	a.fib[0][0] &#x3D; a.fib[0][1] &#x3D; a.fib[1][0] &#x3D; 1;
+	b &#x3D; qpow(a, n);
+	printf(&quot;%lld\n&quot;, b.fib[0][1]);
 	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>你学 <del>废</del> 会了吗</p>
 
                 
             </div>
@@ -602,7 +672,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.honahec.com/2021/06/25/you-li-shu-qu-yu/">http://www.honahec.com/2021/06/25/you-li-shu-qu-yu/</a>
+                    <a href="http://www.honahec.com/ju-zhen/">http://www.honahec.com/ju-zhen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -812,7 +882,7 @@ int main() &#123;
         repo: 'Calm00.github.io',
         owner: 'Calm00',
         admin: "Calm00",
-        id: '2021-06-25T21-49-03',
+        id: '2021-06-25T21-52-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1110,13 +1180,13 @@ int main() &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/25/radio-contact-g/">
+                <a href="/xie-lu-you-hua-dp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Radio Contact G">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="斜率优化dp">
                         
-                        <span class="card-title">Radio Contact G</span>
+                        <span class="card-title">斜率优化dp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1133,8 +1203,8 @@ int main() &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
                                 </a>
                             
                             
@@ -1159,13 +1229,13 @@ int main() &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/25/hello-world/">
+                <a href="/da-yan-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="打鼹鼠">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">打鼹鼠</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1182,8 +1252,8 @@ int main() &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
-                                    随便说说
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
                                 </a>
                             
                             
@@ -1193,8 +1263,8 @@ int main() &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%91%B8%E9%B1%BC/">
-                        <span class="chip bg-color">摸鱼</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
@@ -1663,6 +1733,21 @@ $(function () {
 	<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
 	</script>
 	
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>

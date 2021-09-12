@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Radio Contact G, Honahec">
+    <meta name="keywords" content="Hello World, Honahec">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Radio Contact G | Honahec</title>
+    <title>Hello World | Honahec</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -292,12 +292,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Radio Contact G</h1>
+                    <h1 class="description center-align post-title">Hello World</h1>
                 </div>
             </div>
         </div>
@@ -413,8 +413,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                                <span class="chip bg-color">摸鱼</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                题解
+                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
+                                随便说说
                             </a>
                         
                     </div>
@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-26
+                    2021-09-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    495
+                    110
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -482,70 +482,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3133">P3133 Radio Contact G</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p> $ dp $ 题</p>
-<p>设 $ dp_{i,j} $ 为Farmer John走到第i步，Bessie走到第j步需要的最小能量</p>
-<p>很容易得到转移方程 $ f_{i,j}=min(f_{i-1,j},f_{i,j-1},f_{i-1,j-1})+dist $ </p>
-<p>其中 $ dist $ 为Farmer John在第i步，Bessie在第j步时他们<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/欧几里得度量/1274107?fromtitle=欧几里得距离&amp;fromid=2701459">欧几里得距离</a>的平方</p>
-<p>即 $ (x_1-x_2)^2-(y_1-y_2)^2 $ </p>
-<h3 id="注意一下初始化："><a href="#注意一下初始化：" class="headerlink" title="注意一下初始化："></a>注意一下初始化：</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">f[i][0] &#x3D; f[i - 1][0] + dist;
-f[0][i] &#x3D; f[i - 1][0] + dist;
-f[0][0] &#x3D; 0; &#x2F;&#x2F;初始位置不消耗能量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>然后这道题就愉快的AC了</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#define fo(i,x,y) for(register int i&#x3D;x;i&lt;&#x3D;y;++i)
-#define go(i,x,y) for(register int i&#x3D;x;i&gt;&#x3D;y;--i)
-#define INF 0x3f3f3f3f
-#define il inline
-#define ll long long
-#define ull unsigned long long
-using namespace std;
-
-const int N &#x3D; 1005;
-int n, m, fx, fy, bx, by;
-char fs[N], bs[N];
-int f[N][N];
-
-il int min(const int &amp;a, const int &amp;b) &#123;return a &lt; b ? a : b;&#125;
-
-il void move(int &amp;x, int &amp;y, const char &amp;t) &#123;
-	switch(t) &#123;
-		case &#39;N&#39;: ++y; break;
-		case &#39;S&#39;: --y; break;
-		case &#39;E&#39;: ++x; break;
-		case &#39;W&#39;: --x; break;
-	&#125;
-&#125;
-
-il int dist(const int &amp;x1, const int &amp;y1, const int &amp;x2, const int &amp;y2) &#123;
-	return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-&#125;
-
+                <h2 id="Hello-大家好啊"><a href="#Hello-大家好啊" class="headerlink" title="Hello 大家好啊"></a>Hello 大家好啊</h2><p>我是Honahec，一个蒟蒻</p>
+<p>目前这个博客仍在建设中，如果您有任何想法都可以在<strong>右上方的留言板</strong>中留言或者添加我的QQ，我会及时回复并采纳部分建议</p>
+<p>如果您也想要建设一个属于自己的博客也可以联系我</p>
+<p><strong>谢谢大家</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 int main() &#123;
-	scanf(&quot;%d%d%d%d%d%d%s%s&quot;, &amp;n, &amp;m, &amp;fx, &amp;fy, &amp;bx, &amp;by, fs + 1, bs + 1);
-	int lenf &#x3D; strlen(fs + 1), lenb &#x3D; strlen(bs + 1);
-	int tx1 &#x3D; fx, ty1 &#x3D; fy, tx2 &#x3D; bx, ty2 &#x3D; by;
-	fo(i, 1, lenf) &#123;
-		move(tx1, ty1, fs[i]);
-		f[i][0] &#x3D; f[i - 1][0] + dist(tx1, ty1, bx, by);
-	&#125;
-	fo(i, 1, lenb) &#123;
-		move(tx2, ty2, bs[i]);
-		f[0][i] &#x3D; f[0][i - 1] + dist(fx, fy, tx2, ty2);
-	&#125;&#x2F;&#x2F;初始化
-	tx1 &#x3D; fx, ty1 &#x3D; fy;
-	fo(i, 1, lenf) &#123;
-		tx2 &#x3D; bx, ty2 &#x3D; by;
-		move(tx1, ty1, fs[i]);
-		fo(j, 1, lenb) &#123;
-			move(tx2, ty2, bs[j]);
-			f[i][j] &#x3D; min(f[i - 1][j], min(f[i][j - 1], f[i - 1][j - 1])) + dist(tx1, ty1, tx2, ty2);
-		&#125;
-	&#125;
-	printf(&quot;%lld\n&quot;, f[lenf][lenb]);
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    printf(&quot;Hello World!\n&quot;);
+    return 114514; &#x2F;&#x2F;:)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -572,7 +517,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.honahec.com/2021/06/25/radio-contact-g/">http://www.honahec.com/2021/06/25/radio-contact-g/</a>
+                    <a href="http://www.honahec.com/hello-world/">http://www.honahec.com/hello-world/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +555,8 @@ int main() &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                                    <span class="chip bg-color">摸鱼</span>
                                 </a>
                             
                         </div>
@@ -782,7 +727,7 @@ int main() &#123;
         repo: 'Calm00.github.io',
         owner: 'Calm00',
         admin: "Calm00",
-        id: '2021-06-25T21-50-26',
+        id: '2021-06-25T21-38-19',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1080,13 +1025,13 @@ int main() &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/25/da-yan-shu/">
+                <a href="/you-li-shu-qu-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="打鼹鼠">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="有理数取余">
                         
-                        <span class="card-title">打鼹鼠</span>
+                        <span class="card-title">有理数取余</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1126,16 +1071,16 @@ int main() &#123;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/25/you-li-shu-qu-yu/">
+                <a href="/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="有理数取余">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">有理数取余</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1152,19 +1097,20 @@ int main() &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
+                                    随便说说
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                        <span class="chip bg-color">摸鱼</span>
                     </a>
                     
                 </div>
@@ -1633,6 +1579,21 @@ $(function () {
 	<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
 	</script>
 	
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>
