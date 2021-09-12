@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="打鼹鼠, Honahec">
+    <meta name="keywords" content="Hello World, Honahec">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>打鼹鼠 | Honahec</title>
+    <title>Hello World | Honahec</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -292,12 +292,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">打鼹鼠</h1>
+                    <h1 class="description center-align post-title">Hello World</h1>
                 </div>
             </div>
         </div>
@@ -413,8 +413,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                                <span class="chip bg-color">摸鱼</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                题解
+                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
+                                随便说说
                             </a>
                         
                     </div>
@@ -445,14 +445,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-26
+                    2021-09-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    342
+                    110
                 </div>
                 
 
@@ -477,48 +477,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2285">P2285 打鼹鼠</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>很明显，这是一道 $ dp $ 题，因为标签已经告诉我们了（不是</p>
-<p>怎么 $ dp $ 呢？</p>
-<p>棋盘？三维必炸啊，<del>二维本蒟蒻不会</del></p>
-<p>时间？<del>更离谱了</del></p>
-<p>所以就只能从鼹鼠下手了</p>
-<p>设 $ dp_i $ 为到第 $ i $ 只鼹鼠时最多能打到几只</p>
-<p>因为我们要守株待兔（鼠），所以初始化 $ dp_i=1 $ </p>
-<p>若两鼹鼠之间的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/曼哈顿距离/743092?fr=aladdin">曼哈顿距离</a>小于出现时间差</p>
-<p>此时转移方程为 $ dp_i=min(dp[i],dp[j]+1) $ </p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
-#include&lt;cmath&gt;
-#define fo(i,x,y) for(register int i&#x3D;x;i&lt;&#x3D;y;++i)
-#define go(i,x,y) for(register int i&#x3D;x;i&gt;&#x3D;y;--i)
-#define INF 0x3f3f3f3f
-#define il inline
-#define ll long long
-#define ull unsigned long long
-using namespace std;
-
-const int N &#x3D; 1005, M &#x3D; 10005;
-int n, m, dp[M], ans;
-struct NODE &#123;
-	int time, x, y;
-&#125;node[M];
-
-il int max(const int &amp;a, const int &amp;b) &#123;return a &gt; b ? a : b;&#125;
-
+                <h2 id="Hello-大家好啊"><a href="#Hello-大家好啊" class="headerlink" title="Hello 大家好啊"></a>Hello 大家好啊</h2><p>我是Honahec，一个蒟蒻</p>
+<p>目前这个博客仍在建设中，如果您有任何想法都可以在<strong>右上方的留言板</strong>中留言或者添加我的QQ，我会及时回复并采纳部分建议</p>
+<p>如果您也想要建设一个属于自己的博客也可以联系我</p>
+<p><strong>谢谢大家</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
 int main() &#123;
-	scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
-	fo(i, 1, m) scanf(&quot;%d%d%d&quot;, &amp;node[i].time, &amp;node[i].x, &amp;node[i].y), dp[i] &#x3D; 1;
-	fo(i, 1, m) &#123;
-		fo(j, 1, i - 1) &#123;
-			if(abs(node[i].x - node[j].x) + abs(node[i].y - node[j].y) &lt;&#x3D; abs(node[i].time - node[j].time)) &#123;
-				dp[i] &#x3D; max(dp[i], dp[j] + 1);
-			&#125;
-		&#125;
-	&#125;
-	fo(i, 1, m) ans &#x3D; max(ans, dp[i]);
-	printf(&quot;%d\n&quot;, ans);
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    printf(&quot;Hello World!\n&quot;);
+    return 114514; &#x2F;&#x2F;:)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -545,7 +512,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.honahec.com/2021/06/25/da-yan-shu/">http://www.honahec.com/2021/06/25/da-yan-shu/</a>
+                    <a href="http://www.honahec.com/hello-world/">http://www.honahec.com/hello-world/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -583,8 +550,8 @@ int main() &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                                    <span class="chip bg-color">摸鱼</span>
                                 </a>
                             
                         </div>
@@ -755,7 +722,7 @@ int main() &#123;
         repo: 'Calm00.github.io',
         owner: 'Calm00',
         admin: "Calm00",
-        id: '2021-06-25T21-51-07',
+        id: '2021-06-25T21-38-19',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1053,13 +1020,13 @@ int main() &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/25/ju-zhen/">
+                <a href="/you-li-shu-qu-yu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="矩阵">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="有理数取余">
                         
-                        <span class="card-title">矩阵</span>
+                        <span class="card-title">有理数取余</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1076,8 +1043,8 @@ int main() &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
-                                    教程
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
                                 </a>
                             
                             
@@ -1099,16 +1066,16 @@ int main() &#123;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/25/radio-contact-g/">
+                <a href="/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Radio Contact G">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">Radio Contact G</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1125,19 +1092,20 @@ int main() &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
+                                    随便说说
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                        <span class="chip bg-color">摸鱼</span>
                     </a>
                     
                 </div>
@@ -1602,21 +1570,6 @@ $(function () {
 	<script type="text/javascript"> var OriginTitile = document.title, st; document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) })
 	</script>
 	
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 
 </html>
