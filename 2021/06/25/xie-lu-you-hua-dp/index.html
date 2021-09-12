@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Honahec">
+    <meta name="keywords" content="斜率优化dp, Honahec">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Honahec</title>
+    <title>斜率优化dp | Honahec</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -292,12 +292,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">斜率优化dp</h1>
                 </div>
             </div>
         </div>
@@ -413,8 +413,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%91%B8%E9%B1%BC/">
-                                <span class="chip bg-color">摸鱼</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
-                                随便说说
+                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                教程
                             </a>
                         
                     </div>
@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-05
+                    2021-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    110
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    23 分
                 </div>
                 
 
@@ -477,15 +477,446 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hello-大家好啊"><a href="#Hello-大家好啊" class="headerlink" title="Hello 大家好啊"></a>Hello 大家好啊</h2><p>我是Honahec，一个蒟蒻</p>
-<p>目前这个博客仍在建设中，如果您有任何想法都可以在<strong>右上方的留言板</strong>中留言或者添加我的QQ，我会及时回复并采纳部分建议</p>
-<p>如果您也想要建设一个属于自己的博客也可以联系我</p>
-<p><strong>谢谢大家</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+                <h1 id="斜率优化-dp"><a href="#斜率优化-dp" class="headerlink" title="斜率优化 $ dp $"></a>斜率优化 $ dp $</h1><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>凸多边形</td>
+<td>所有内角都在 $ (0°,180°) $ 的简单多边形</td>
+</tr>
+<tr>
+<td>凸包</td>
+<td>在平面上能包含所有给定点的最小凸多边形叫做凸包。</td>
+</tr>
+<tr>
+<td>上凸包</td>
+<td>凸包中横坐标最小的点到横坐标最大的点的上半部分</td>
+</tr>
+<tr>
+<td>下凸包</td>
+<td>凸包中横坐标最小的点到横坐标最大的点的下半部分</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如右图，蓝色部分是上凸包，橙色部分是下凸包<img src="https://z3.ax1x.com/2021/06/02/2lVNGV.png" alt="001" style="zoom:25%;" /></p>
+<blockquote>
+<p>让我们通过例题来学习斜率优化 $ dp $ </p>
+</blockquote>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="HNOI2008-玩具装箱"><a href="#HNOI2008-玩具装箱" class="headerlink" title="[HNOI2008] 玩具装箱"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3195">[HNOI2008] 玩具装箱</a></h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>P 教授要去看奥运，但是他舍不下他的玩具，于是他决定把所有的玩具运到北京。他使用自己的压缩器进行压缩，其可以将任意物品变成一堆，再放到一种特殊的一维容器中。</p>
+<p>P 教授有编号为  $ 1 \cdots n $  的  $ n $  件玩具，第件玩具经过压缩后的一维长度为  $ C_i $ 。</p>
+<p>为了方便整理，P教授要求：</p>
+<ul>
+<li>在一个一维容器中的玩具编号是连续的。</li>
+<li>同时如果一个一维容器中有多个玩具，那么两件玩具之间要加入一个单位长度的填充物。形式地说，如果将第  $ i $  件玩具到第  $ j $  个玩具放到一个容器中，那么容器的长度将为  $ x=j-i+\sum_{k=i}^{j}C_k $ 。</li>
+</ul>
+<p>制作容器的费用与容器的长度有关，根据教授研究，如果容器长度为  $ x $ ，其制作费用为  $ (x-L)^2 $ 。其中  $ L $  是一个常量。P 教授不关心容器的数目，他可以制作出任意长度的容器，甚至超过  $ L $ 。但他希望所有容器的总费用最小。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行有两个整数，用一个空格隔开，分别代表  $ n $  和  $ L $ 。</p>
+<p>第  $ 2 $  到 第  $ (n+1) $  行，每行一个整数，第  $ (i+1) $  行的整数代表第  $ i $  件玩具的长度  $ C_i $ 。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出一行一个整数，代表所有容器的总费用最小是多少。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>对于全部的测试点， $ 1 \leq n \leq 5 \times 10^4,1 \leq L \leq 10^7,1 \leq C_i \leq 10^7 $ </p>
+<h3 id="基本-dp-思路"><a href="#基本-dp-思路" class="headerlink" title="基本 $ dp $ 思路"></a>基本 $ dp $ 思路</h3><p>设 $ F_i $ 为装前 $ i $ 个玩具的最小费用，则 $ F_i=min_{0\leq j&lt;i}(F_j+(i-j-1-L+\sum^{i}_{k=j+1}C_k)^2) $ </p>
+<p>其中 $ \sum^{i}_{k = j+1} C_k $ 可以用前缀和优化掉，变成 $ F_i = min_{0 \leq j&lt;i}(F_j+(i-j-1-L+sum_i-sum_j)^2) $ </p>
+<p>非常好啊， $ O(n^2) $ ，0分到手</p>
+<p>怎么办呢？</p>
+<h3 id="处理一下"><a href="#处理一下" class="headerlink" title="处理一下"></a>处理一下</h3><p>这个 $ dp $ 方程好像不太好处理</p>
+<p>首先我们不看这个 $ min $ ，只看 $ F_i=F_j+(i-j-1-L+sum_i-sum_j )^2 $ </p>
+<script type="math/tex; mode=display">
+\begin{align}
+令A=i+sum_i，B&=j+sum_j，C=L+1\\
+F_j+(A-B-C)^2&=F_j+A^2+(B+C)^2-2A(B+C)\\
+F_i+2A(B+C)&=F_j+A^2+(B+C)^2\\
+令x=B+C，y=F_j&+(B+C)^2，k=2A，b=F_i-A^2\\
+y&=kx+b
+\end{align}</script><p>想到了什么？</p>
+<p>我们要最小化 $ F_i $ ，那也就是说我们要最小化 $ b $ </p>
+<p>对于每一个确定的 $ i $ ， $ k $ 都是确定的</p>
+<p>问题转化成了求过 $ (B+C, F_j+(B+C)^2) $ 中任意一点且斜率为k的直线截距的最小值。</p>
+<h4 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h4><p><strong>如果你只想知道斜率优化怎么用，那么你可以<a href="#toc-heading-11">点此</a>跳过这部分。</strong></p>
+<p>我们易可证截距的最小值一定取在下凸包上</p>
+<p>证明：假如截距的最小值取在非下凸包上的一个点 $ (x_0,y_0 ) $ ，则有两种情况：</p>
+<p>（一） 下凸包上有一个点 $ (x_0,y_1) $ </p>
+<p>所以过 $ (x_0,y_0) $ 的直线的解析式为 $ y=kx+y_0-kx_0 $ ，过 $ (x_0,y_1) $ 的直线的解析式为 $ y=kx+y_1-kx_0 $ </p>
+<p>根据下凸包的定义可得 $ y_0&gt;y_1 $ ，故 $ y_0-kx_0&gt;y_1-kx_1 $ ，矛盾</p>
+<p>（二） 下凸包上没有和其横坐标相同的点</p>
+<p>根据下凸包的定义，可得下凸包上一定存在两个点 $ (x_1,y_1) $ , $ (x_2,y_2) $ 使得 $ x_1&lt;x_0&lt;x_2 $ 且 $ x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}&lt;y_0 $ </p>
+<p>我们在经过 $ (x_1,y_1) $ ,  $ (x_2,y_2) $ 的直线上取一点 $ (x_0,x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-xx_2}) $ </p>
+<ul>
+<li>过 $ (x_0,y_0) $ 的直线解析式为 $ y=kx+y_0-kx_0 $ </li>
+<li>过 $ (x_0,x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}) $ 的为 $ y=kx+x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0 $ </li>
+<li>过 $ (x_1,y_1) $ 的为 $ y=kx+y_1-kx_1 $ </li>
+<li>过 $ (x_2,y_2) $ 的为 $ y=kx+y_2-kx_2 $ </li>
+</ul>
+<p>由（一）可得 $ y_0-kx_0&gt;x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0 $ </p>
+<script type="math/tex; mode=display">
+\begin{align}
+&k>\frac{y_1-y_2}{x_1-x_2}\\
+&(x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2 }-kx_0)-(y_1-kx_1 )\\
+&=\frac{x_0 y_1-x_0 y_2+x_1 y_2-x_1 y_1}{x_1-x_2}-k(x_1-x_0)\\
+&=\frac{(x_0-x_1)(y_1-y_2)}{x_1-x_2}-k(x_0-x_1)\\
+&>\frac{(x_0-x_1 )(y_1-y_2)}{x_1-x_2}-\frac{(x_0-x_1)(y_1-y_2 )}{x_1-x_2}\\
+&=0
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+&k\leq\frac{y_1-y_2}{x_1-x_2}\\
+&(𝑥_0\frac{𝑦_1−𝑦_2}{𝑥_1−𝑥_2}+\frac{𝑥_1 𝑦_2−𝑥_2 𝑦_1}{𝑥_1−𝑥_2}−𝑘𝑥_0 )−(𝑦_2−𝑘𝑥_2 )\\
+&=\frac{𝑥_0 𝑦_1−𝑥_0 𝑦_2+𝑥_2 𝑦_2−𝑥_2 𝑦_1}{𝑥_1−𝑥_2}−𝑘(𝑥_2−𝑥_0)\\
+&=\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}−𝑘(𝑥_0−𝑥_2 )\\
+&≥\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}−\frac{(𝑥_0−𝑥_2 )(𝑦_1−𝑦_2 )}{𝑥_1−𝑥_2}\\
+&=0
+\end{align}</script><ul>
+<li>综上所述，在 $ y_1-kx_1 $ 和 $ y_2-kx_2 $ 中一定存在一个数小于或等于 $ x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0 $ ，又因为 $ y_0-kx_0&gt;x_0\frac{y_1-y_2}{x_1-x_2}+\frac{x_1 y_2-x_2 y_1}{x_1-x_2}-kx_0 $ ，所以在 $ y_1-kx_1 $ 和 $ y_2-kx_2 $ 中一定存在一个数小于 $ y_0-kx_0 $ ，矛盾。</li>
+<li>综上所述，此截距的最小值一定取在下凸包上。</li>
+<li>证毕。</li>
+</ul>
+<h4 id="回归正题"><a href="#回归正题" class="headerlink" title="回归正题"></a>回归正题</h4><p>现在我们知道了最优决策点一定在下凸包上</p>
+<p>那么我们怎么找最优决策点呢？</p>
+<p>首先我们易得下凸包中所有线的斜率一定是<strong>单调递增</strong>的</p>
+<p>如果存在三个下凸包中的点 $ (x_1,y_1 ) $ ， $ (x_2,y_2 ) $ ， $ (x_3,y_3 ) $ 使得 $ x_1 &lt; x_2 &lt; x_3 $ 且 $ \frac{y_2-y_1}{x_2-x_1} &gt; \frac{y_3-y_2}{x_3-x_2} $ ，则 $ y_2 - \frac{y_3-y_1}{x_3-x_1} x_2 - \frac{x_3 y_1-x_1 y_3}{x_3-x_1} = \frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1} $  </p>
+<p>又因为 $ x_1 &lt; x_2 &lt; x_3 $ ，所以 $ x_2-x_1 &gt; 0 $ ， $ x_3-x_2 &gt; 0 $ ， $ x_3-x_1 &gt; 0 $ </p>
+<p>故 $ (y_2-y_1 )(x_3-x_2 )&gt;(y_3-y_2 )(x_2-x_1 ) $ ，即 $ x_2 y_1-x_3 y_1+x_3 y_2&gt;x_1 y_2-x_1 y_3+x_2 y_3 $ </p>
+<p>所以 $ \frac{-x_1 y_2+x_1 y_3+x_2 y_1-x_2 y_3-x_3 y_1+x_3 y_2}{x_3-x_1}&gt;0 $ ，故 $ y_2&gt;\frac{y_3-y_1}{x_3-x_1} x_2+\frac{x_3 y_1-x_1 y_3}{x_3-x_1} $ ，所以 $ (x_2,y_2 ) $ 一定不在下凸包内。</p>
+<p>思路很清晰了吧？</p>
+<h3 id="简简单单的代码"><a href="#简简单单的代码" class="headerlink" title="简简单单的代码"></a>简简单单的代码</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;cstdio&gt;
+using namespace std;
+
+const int N &#x3D; 5e4 + 5;
+int n, L, C, Qt[N], h &#x3D; 1, t;
+ll sum[N], f[N], Qx[N], Qy[N];
+
+il ll sq(ll x) &#123;return x * x;&#125;
+il double sl(ll x1, ll y1, ll x2, ll y2) &#123;return (double) (y1 - y2) &#x2F; (x1 - x2);&#125;
+
+int main() &#123; 
+	scanf(&quot;%d%d%d&quot;, &amp;n, &amp;L, &amp;C);
+	sum[1] &#x3D; C; f[1] &#x3D; sq(C - L);
+	Qt[++t] &#x3D; 0; Qx[t] &#x3D; L + 1; Qy[t] &#x3D; sq(Qx[t]);
+	Qt[++t] &#x3D; 1; Qx[t] &#x3D; L + 2 + C; Qy[t] &#x3D; f[1] + sq(Qx[t]);
+	for(int i &#x3D; 2; i &lt;&#x3D; n; ++i) &#123;
+		scanf(&quot;%d&quot;, &amp;C);
+		sum[i] &#x3D; sum[i - 1] + C;
+		double slope &#x3D; (i + sum[i]) &lt;&lt; 1;
+		while(h &lt; t &amp;&amp; sl(Qx[h], Qy[h], Qx[h + 1], Qy[h + 1]) &lt; slope) ++h;
+		f[i] &#x3D; f[Qt[h]] + sq(i - Qt[h] - 1 + sum[i] - sum[Qt[h]] - L);
+		ll X &#x3D; i + sum[i] + L + 1, Y &#x3D; f[i] + sq(X);
+		while(h &lt; t &amp;&amp; sl(Qx[t], Qy[t], Qx[t - 1], Qy[t - 1]) &gt;&#x3D; sl(Qx[t], Qy[t], X, Y)) --t; 
+		Qt[++t] &#x3D; i; Qx[t] &#x3D; X, Qy[t] &#x3D; Y;
+	&#125;
+	printf(&quot;%lld\n&quot;, f[n]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="问题来了"><a href="#问题来了" class="headerlink" title="问题来了"></a>问题来了</h2><p>若 $ C_k $ 可以小于0呢？又该怎么做？</p>
+<p>这个我们一眼就能看穿这玩意<strong>不满足单调性</strong>。</p>
+<p>假如说考试的时候你不会证斜率的点或者决策有/没有单调性怎么办？</p>
+<p>有两种方法。第一种是打表，多打几组。</p>
+<p>第二种是不管三七二十一直接上不满足单调性时的做法。反正满足单调性的时候不满足单调性时的做法也能用。</p>
+<p>不满足单调性的做法：</p>
+<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><p>我们用 $ dc(l, r) $ 表示计算 $ [l, r] $ 中的 $ dp_i $ 。</p>
+<p>对于左半边，我们先用 $ dc(l, mid) $ 算出 $ [l, mid] $ 中的 $ dp_i $ 。然后我们就知道了所有的决策点，那么就可以建凸包。然后我们用这个凸包去更新 $ [mid, r] $ 中的 $ dp_i $ 。这时的凸包是固定的，所以我们可以把 $ [mid, r] $ 的查询斜率排序，然后用单调队列维护。当然也可以直接在凸包上二分。</p>
+<p>对于 $ [mid, r] $ 中的每个 $ dp_i $ ，如果它的最优决策点在 $ [1, mid] $ ，则上一步已经更新完，如果它的最优决策点不在 $ [l, mid] $ 我们也不需要 $ [l, mid] $ 的凸包。所以我们可以直接把左边的凸包抛掉，用 $ dc(mid + 1, r) $ 计算之后的 $ dp_i $ 。</p>
+<p> $ T(n)=2T(\frac{n}{2})+O(n\log n))=O(n\log^2n) $ </p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;vector&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+
+int n, h[100005], w[100005], pre[100005];
+long long dp[100005], sum[100005];
+
+struct Point &#123;
+	long long x, y;
+	int id;
+	Point(long long _x, long long _y, int _id): x(_x), y(_y), id(_id) &#123;&#125;
+	double operator&#x2F; (const Point &amp;p) const &#123; return (double) (y - p.y) &#x2F; (x - p.x); &#125;
+&#125;;
+
+long long min(long long a, long long b) &#123; return a &lt; b ? a : b; &#125;
+
+void cdq(int l, int r) &#123;
+	while (l !&#x3D; r) &#123;
+		std::vector&lt;Point&gt; Q, temp;
+		int mid &#x3D; (l + r) &gt;&gt; 1;
+		cdq(l, mid);
+		for (int i &#x3D; l; i &lt;&#x3D; mid; ++i)
+			temp.push_back(Point(h[i], dp[i] + (long long) h[i] * h[i] - sum[i], i));
+		std::sort(temp.begin(), temp.end(), [] (const Point &amp;p1, const Point &amp;p2) &#123;
+			return p1.x &#x3D;&#x3D; p2.x ? p1.y &lt; p2.y : p1.x &lt; p2.x;
+		&#125;);
+		Q.push_back(temp[0]); int _size &#x3D; 0;
+		for (int i &#x3D; 1; i &lt; (int) temp.size(); ++i) &#123;
+			if (Q[_size].x &#x3D;&#x3D; temp[i].x) continue;
+			while (_size &amp;&amp; Q[_size] &#x2F; Q[_size - 1] &gt; Q[_size] &#x2F; temp[i]) Q.pop_back(), --_size;
+			Q.push_back(temp[i]); ++_size;
+		&#125;
+		for (int i &#x3D; r; i &gt; mid; --i) &#123;
+			int l &#x3D; 1, r &#x3D; Q.size() - 1, sl &#x3D; h[i] &lt;&lt; 1;
+			while (l &lt;&#x3D; r) &#123;
+				int mid &#x3D; (l + r) &gt;&gt; 1;
+				if (Q[mid] &#x2F; Q[mid - 1] &gt; sl) r &#x3D; mid - 1;
+				else l &#x3D; mid + 1;
+			&#125;
+			int k &#x3D; Q[r].id;
+			dp[i] &#x3D; min(dp[i], dp[k] + (long long) (h[i] - h[k]) * (h[i] - h[k]) + sum[i - 1] - sum[k]);
+		&#125;
+		l &#x3D; mid + 1;
+	&#125;
+&#125;
+
 int main() &#123;
-    printf(&quot;Hello World!\n&quot;);
-    return 114514; &#x2F;&#x2F;:)
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; ++i) scanf(&quot;%d&quot;, h + i);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; ++i) scanf(&quot;%d&quot;, w + i), sum[i] &#x3D; sum[i - 1] + w[i];
+	memset(dp, 0x3f, sizeof dp); dp[1] &#x3D; 0;
+	cdq(1, n); printf(&quot;%lld\n&quot;, dp[n]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h3><p>思路很简洁，一说就懂，一写就废</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+inline unsigned rand() &#123;
+	static unsigned seed &#x3D; 19260817;
+	return (seed &#x3D; seed * 1279u + 10001279u) ^&#x3D; (seed &gt;&gt; 7);
+&#125;
+
+struct Point &#123;
+	long long x, y;
+	int id;
+	Point(long long _x, long long _y, int _id): x(_x), y(_y), id(_id) &#123;&#125;
+	Point() &#123;&#125;
+	double operator&#x2F; (const Point &amp;p) const &#123; return (double) (y - p.y) &#x2F; (x - p.x); &#125;
+&#125;;
+
+struct Treap &#123;
+	struct node &#123;
+		int ls, rs, size;
+		Point p;
+		double lp, rp;
+		unsigned key;
+	&#125; tr[100005];
+	int cnt, root;
+	inline int new_node(const Point &amp;p) &#123;
+		tr[++cnt].p &#x3D; p;
+		tr[cnt].key &#x3D; rand();
+		tr[cnt].size &#x3D; 1;
+		return cnt;
+	&#125;
+	inline void push_up(int k) &#123; if (k) tr[k].size &#x3D; tr[tr[k].ls].size + tr[tr[k].rs].size + 1; &#125;
+	void rotate_left(int &amp;k) &#123;
+		int old_k &#x3D; k;
+		k &#x3D; tr[k].rs;
+		tr[old_k].rs &#x3D; tr[k].ls;
+		tr[k].ls &#x3D; old_k;
+		push_up(old_k);
+		push_up(k);
+	&#125;
+	void rotate_right(int &amp;k) &#123;
+		int old_k &#x3D; k;
+		k &#x3D; tr[k].ls;
+		tr[old_k].ls &#x3D; tr[k].rs;
+		tr[k].rs &#x3D; old_k;
+		push_up(old_k);
+		push_up(k);
+	&#125;
+	int insert(int &amp;k, const Point &amp;v) &#123;
+		int tmp;
+		if (!k) &#123; return k &#x3D; new_node(v); &#125;
+		if (v.x &lt; tr[k].p.x) &#123;
+			if (tmp &#x3D; insert(tr[k].ls, v)) &#123;
+				if (tr[k].key &gt; tr[tr[k].ls].key) rotate_right(k);
+				push_up(k);
+				return tmp;
+			&#125; else return 0;
+		&#125; else if (v.x &gt; tr[k].p.x) &#123;
+			if (tmp &#x3D; insert(tr[k].rs, v)) &#123;
+				if (tr[k].key &gt; tr[tr[k].rs].key) rotate_left(k);
+				push_up(k);
+				return tmp;
+			&#125; else return 0;
+		&#125; else &#123;
+			if (tr[k].p.y &lt; v.y) return 0;
+			tr[k].p.y &#x3D; v.y; tr[k].p.id &#x3D; v.id; return k;
+		&#125;
+	&#125;
+	void remove(int &amp;k, long long x) &#123;
+		if (!k) return;
+		if (tr[k].p.x &#x3D;&#x3D; x) &#123;
+			if (tr[k].ls &amp;&amp; tr[k].rs) &#123;
+				if (tr[tr[k].ls].key &lt; tr[tr[k].rs].key) rotate_right(k), remove(tr[k].rs, x);
+				else rotate_left(k), remove(tr[k].ls, x);
+			&#125; else k &#x3D; tr[k].ls | tr[k].rs;
+		&#125; else if (x &lt; tr[k].p.x) remove(tr[k].ls, x);
+		else remove(tr[k].rs, x);
+		push_up(k);
+	&#125;
+	int rank(long long x) &#123;
+		int rnk &#x3D; 0, k &#x3D; root;
+		while (k) &#123;
+			if (x &lt;&#x3D; tr[k].p.x) k &#x3D; tr[k].ls;
+			else rnk +&#x3D; tr[tr[k].ls].size + 1, k &#x3D; tr[k].rs;
+		&#125;
+		return rnk + 1;
+	&#125;
+	int value(int x) &#123;
+		if (x &gt; tr[root].size || x &lt;&#x3D; 0) return -1;
+		int k &#x3D; root;
+		while (k) &#123;
+			if (x &lt;&#x3D; tr[tr[k].ls].size) k &#x3D; tr[k].ls;
+			else if (x &#x3D;&#x3D; tr[tr[k].ls].size + 1) return k;
+			else x -&#x3D; tr[tr[k].ls].size + 1, k &#x3D; tr[k].rs;
+		&#125;
+		return -1;
+	&#125;
+	int prev(long long v) &#123; return value(rank(v) - 1); &#125;
+	int next(long long v) &#123; return value(rank(v + 1)); &#125; 
+	void insert_hull(const Point &amp;point) &#123;
+		int k &#x3D; insert(root, point);
+		if (!k) return;
+		int k1 &#x3D; prev(point.x);
+		if (k1 !&#x3D; -1) &#123;
+			while (tr[k1].lp &gt; point &#x2F; tr[k1].p) remove(root, tr[k1].p.x), k1 &#x3D; prev(tr[k1].p.x);
+			tr[k].lp &#x3D; tr[k1].rp &#x3D; point &#x2F; tr[k1].p;
+		&#125; else tr[k].lp &#x3D; -1e30;
+		int k2 &#x3D; next(point.x);
+		if (k2 !&#x3D; -1) &#123;
+			while (point &#x2F; tr[k2].p &gt; tr[k2].rp)
+				remove(root, tr[k2].p.x), k2 &#x3D; next(tr[k2].p.x);
+			tr[k].rp &#x3D; tr[k2].lp &#x3D; tr[k2].p &#x2F; point;
+		&#125; else tr[k].rp &#x3D; 1e30;
+		if (tr[k].lp &gt; tr[k].rp) &#123;
+			remove(root, tr[k].p.x);
+			tr[k1].rp &#x3D; tr[k2].lp &#x3D; tr[k1].p &#x2F; tr[k2].p;
+		&#125;
+	&#125;
+	int query_hull(long long slope) &#123;
+		int k &#x3D; root;
+		while (k) &#123;
+			if (tr[k].lp &lt;&#x3D; slope &amp;&amp; slope &lt;&#x3D; tr[k].rp) return tr[k].p.id;
+			else if (slope &lt; tr[k].lp) k &#x3D; tr[k].ls;
+			else k &#x3D; tr[k].rs;
+		&#125;
+		return -1;
+	&#125;
+&#125; treap;
+
+int n, w[100005], h[100005];
+long long sum[100005], dp[100005];
+
+long long min(long long a, long long b) &#123; return a &lt; b ? a : b; &#125;
+
+int main() &#123;
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; ++i) scanf(&quot;%d&quot;, h + i);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; ++i) scanf(&quot;%d&quot;, w + i), sum[i] &#x3D; sum[i - 1] + w[i];
+	memset(dp, 0x3f, sizeof dp); dp[1] &#x3D; 0;
+	treap.new_node(Point(h[1], (long long) h[1] * h[1] - w[1], 1));
+	treap.root &#x3D; 1; treap.tr[1].lp &#x3D; -1e30; treap.tr[1].rp &#x3D; 1e30;
+	for (int i &#x3D; 2; i &lt;&#x3D; n; ++i) &#123;
+		int j &#x3D; treap.query_hull(h[i] &lt;&lt; 1);
+		dp[i] &#x3D; min(dp[i], dp[j] + (long long) (h[i] - h[j]) * (h[i] - h[j]) + sum[i - 1] - sum[j]);
+		treap.insert_hull(Point(h[i], dp[i] + (long long) h[i] * h[i] - sum[i], i));
+	&#125;
+	printf(&quot;%lld&quot;, dp[n]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二进制分组"><a href="#二进制分组" class="headerlink" title="二进制分组"></a>二进制分组</h3><p>我们将所有的点分成若干组，第 $ i $ 组大小为 $ 2^i $ ，显然组数不超过 $ O(\log n) $ 。我们维护每组的凸包。</p>
+<p>插入一个点时，若没有第0组，则将它作为第0组，否则将它和第0组合并。这样我们得到了第1组。接下来如果有第1组，则再将它与第1组合并得到第2组……类似二进制+1的过程。</p>
+<p>查询在每一组分别二分，取最大即可。</p>
+<p>关于时间复杂度：</p>
+<p>显然每个点最多被合并 $ O(\log ⁡n) $ 次。我们合并两个包含 $ O(n) $ 个节点的凸包的时间复杂度是 $ O(n) $ 的，故均摊到每个点上合并的时间复杂度是 $ O(1) $ ，又因为共有 $ O(n) $ 个点，所以总时间复杂度 $ O(n\log⁡ n) $ 。</p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;vector&gt;
+
+int n, h[100005], w[100005];
+long long dp[100005], sum[100005];
+
+struct Point &#123;
+	long long x, y;
+	int id;
+	Point(long long _x, long long _y, int _id): x(_x), y(_y), id(_id) &#123;&#125;
+	double operator&#x2F; (const Point &amp;p) const &#123; return (double) (y - p.y) &#x2F; (x - p.x); &#125;
+&#125;;
+
+struct ConvexHull &#123;
+	std::vector&lt;Point&gt; p;
+	void merge(ConvexHull &amp;h) &#123;
+		std::vector&lt;Point&gt; possible_conv;
+		int i &#x3D; 0, j &#x3D; 0;
+		while (i &lt; (int) p.size() &amp;&amp; j &lt; (int) h.p.size())
+			if (p[i].x &#x3D;&#x3D; h.p[j].x) &#123;
+				if (p[i].y &lt; h.p[j].y) possible_conv.push_back(p[i]);
+				else possible_conv.push_back(h.p[j]);
+				++i; ++j;
+			&#125; else if (p[i].x &lt; h.p[j].x) possible_conv.push_back(p[i]), ++i;
+			else possible_conv.push_back(h.p[j]), ++j;
+		while (i &lt; (int) p.size()) possible_conv.push_back(p[i]), ++i;
+		while (j &lt; (int) h.p.size()) possible_conv.push_back(h.p[j]), ++j;
+		p.clear(); p.push_back(possible_conv[0]);
+		int _size &#x3D; 0;
+		for (int i &#x3D; 1; i &lt; (int) possible_conv.size(); ++i) &#123;
+			while (_size &amp;&amp; p[_size] &#x2F; p[_size - 1] &gt; p[_size] &#x2F; possible_conv[i]) p.pop_back(), --_size;
+			p.push_back(possible_conv[i]); ++_size;
+		&#125;
+		h.p.clear();
+	&#125;
+	int query(long long k) &#123;
+		int l &#x3D; 1, r &#x3D; p.size() - 1;
+		while (l &lt;&#x3D; r) &#123;
+			int mid &#x3D; (l + r) &gt;&gt; 1;
+			if (p[mid] &#x2F; p[mid - 1] &gt; k) r &#x3D; mid - 1;
+			else l &#x3D; mid + 1;
+		&#125;
+		return p[r].id;
+	&#125;
+	ConvexHull() &#123;&#125;
+	ConvexHull(const Point &amp;P) &#123; p.push_back(P); &#125;
+&#125; conv[17];
+
+long long min(long long a, long long b) &#123; return a &lt; b ? a : b; &#125;
+
+int main() &#123;
+	scanf(&quot;%d&quot;, &amp;n);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; ++i) scanf(&quot;%d&quot;, h + i);
+	for (int i &#x3D; 1; i &lt;&#x3D; n; ++i) scanf(&quot;%d&quot;, w + i), sum[i] &#x3D; sum[i - 1] + w[i];
+	memset(dp, 0x3f, sizeof dp); dp[1] &#x3D; 0;
+	conv[0] &#x3D; ConvexHull(Point(h[1], (long long) h[1] * h[1] - w[1], 1));
+	for (int i &#x3D; 2; i &lt;&#x3D; n; ++i) &#123;
+		for (int j &#x3D; 0; j &lt; 17; ++j) &#123;
+			if (conv[j].p.empty()) continue;
+			int k &#x3D; conv[j].query(h[i] &lt;&lt; 1);
+			dp[i] &#x3D; min(dp[i], dp[k] + (long long) (h[i] - h[k]) * (h[i] - h[k]) + sum[i - 1] - sum[k]);
+		&#125;
+		ConvexHull cv(Point(h[i], dp[i] + (long long) h[i] * h[i] - sum[i], i));
+		for (int j &#x3D; 0; j &lt; 17; ++j) &#123;
+			if (conv[j].p.empty()) &#123;
+				conv[j].p &#x3D; cv.p;
+				break;
+			&#125;
+			cv.merge(conv[j]);
+		&#125;
+	&#125;
+	printf(&quot;%lld&quot;, dp[n]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在 $ dp $ 的最小/最大化问题中，将转移方程分成四部分：一部分与 $ i, j $ 都无关，一部分只与 $ j $ 有关，一部分只与 $ i $ 有关，还有一部分和 $ i, j $ 都有关。如果它能写成  $ y=kx+b $  的形式，我们就可以维护一个凸包，来进行状态的转移。</p>
+<p><strong>怎么样，你学会(废)了吗</strong></p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><blockquote>
+<p>此处放出你谷的链接</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4655">P4655 / loj 2483 Building Bridges</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5017">P5017 / loj 3007 [NOIP2018 普及组] 摆渡车</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4027">P4027 / loj 2353 [NOI2007] 货币兑换</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3571">P3571 [POI2014] SUP-Supercomputer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF311B">CF311B Cats Transport</a></li>
+</ul>
 
                 
             </div>
@@ -512,7 +943,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.honahec.com/hello-world/">http://www.honahec.com/hello-world/</a>
+                    <a href="http://www.honahec.com/2021/06/25/xie-lu-you-hua-dp/">http://www.honahec.com/2021/06/25/xie-lu-you-hua-dp/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,8 +981,8 @@ int main() &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%91%B8%E9%B1%BC/">
-                                    <span class="chip bg-color">摸鱼</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -722,7 +1153,7 @@ int main() &#123;
         repo: 'Calm00.github.io',
         owner: 'Calm00',
         admin: "Calm00",
-        id: '2021-06-25T21-38-19',
+        id: '2021-06-25T21-53-49',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1020,13 +1451,13 @@ int main() &#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/you-li-shu-qu-yu/">
+                <a href="/2021/09/05/bo-ke-wei-hu-dong-tai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="有理数取余">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="博客维护动态">
                         
-                        <span class="card-title">有理数取余</span>
+                        <span class="card-title">博客维护动态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1037,14 +1468,14 @@ int main() &#123;
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-05
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
+                                    随便说说
                                 </a>
                             
                             
@@ -1054,8 +1485,8 @@ int main() &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%91%B8%E9%B1%BC/">
+                        <span class="chip bg-color">摸鱼</span>
                     </a>
                     
                 </div>
@@ -1066,16 +1497,16 @@ int main() &#123;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hello-world/">
+                <a href="/2021/06/25/ju-zhen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="矩阵">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">矩阵</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1092,20 +1523,19 @@ int main() &#123;
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="post-category">
-                                    随便说说
+                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%91%B8%E9%B1%BC/">
-                        <span class="chip bg-color">摸鱼</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
