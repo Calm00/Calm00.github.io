@@ -464,11 +464,6 @@
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -1302,8 +1297,6 @@
             
             
             
-            
-            
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
                     class="white-color"></span>&nbsp;次
@@ -1350,11 +1343,11 @@
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                        document.getElementById("sitetime").innerHTML = "本站已运行 " + diffYears + " 年 " + diffDays +
                             " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     }
                 }
@@ -1364,7 +1357,7 @@
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <div class="col s12 m4 l4 social-link ">
     <a href="https://github.com/Calm00" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -1550,8 +1543,6 @@ $(function () {
     
     <script src="/libs/others/clicklove.js" async="async"></script>
     
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
