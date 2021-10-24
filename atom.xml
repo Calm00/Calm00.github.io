@@ -6,7 +6,7 @@
   <link href="http://www.honahec.com/atom.xml" rel="self"/>
   
   <link href="http://www.honahec.com/"/>
-  <updated>2021-10-19T11:33:35.762Z</updated>
+  <updated>2021-10-24T09:01:19.290Z</updated>
   <id>http://www.honahec.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.honahec.com/csp2021/"/>
     <id>http://www.honahec.com/csp2021/</id>
     <published>2021-09-19T11:23:26.000Z</published>
-    <updated>2021-10-19T11:33:35.762Z</updated>
+    <updated>2021-10-24T09:01:19.290Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h2><h3 id="day-3"><a href="#day-3" class="headerlink" title="day -3"></a>day -3</h3><p>快初赛了</p><p>刷完这个NOIP2016就都刷完了</p><p>83.5还行</p><p>（感觉充满了信心）</p><h3 id="day-1"><a href="#day-1" class="headerlink" title="day -1"></a>day -1</h3><p>明天就要初赛了</p><p>大半夜的我仍在快乐地刷视频qwq</p><h3 id="day-0"><a href="#day-0" class="headerlink" title="day 0"></a>day 0</h3><p>（早上的我此刻还没有意识到事情的严重性）</p><p>这题怎么一年比一年阴间</p><p>什么base64编码，笛卡尔树+Euler序列搞RMQ</p><p>最后一题还121行</p><p>完全不会呜呜呜</p><p>合分56.5，坐标SD，很慌</p><p><strong>如果能过会继续在这篇博客更新复赛</strong></p><h2 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h2><h3 id="day-4"><a href="#day-4" class="headerlink" title="day -4"></a>day -4</h3><p>啊，居然过了</p><p>然后我发现我啥都不会了qwq</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h2><h3 id="day-3"><a href="#day-3" class="headerlink" title="day -3"></a>day -3</h3><p>快初赛了</p><p>刷完这个NOIP2016就都刷完了</p><p>83.5还行</p><p>（感觉充满了信心）</p><h3 id="day-1"><a href="#day-1" class="headerlink" title="day -1"></a>day -1</h3><p>明天就要初赛了</p><p>大半夜的我仍在快乐地刷视频qwq</p><h3 id="day-0"><a href="#day-0" class="headerlink" title="day 0"></a>day 0</h3><p>（早上的我此刻还没有意识到事情的严重性）</p><p>这题怎么一年比一年阴间</p><p>什么base64编码，笛卡尔树+Euler序列搞RMQ</p><p>最后一题还121行</p><p>完全不会呜呜呜</p><p>合分56.5，坐标SD，很慌</p><p><strong>如果能过会继续在这篇博客更新复赛</strong></p><h2 id="复赛"><a href="#复赛" class="headerlink" title="复赛"></a>复赛</h2><h3 id="day-4"><a href="#day-4" class="headerlink" title="day -4"></a>day -4</h3><p>啊，居然过了</p><p>然后我发现我啥都不会了qwq</p><h3 id="day-0-1"><a href="#day-0-1" class="headerlink" title="day 0"></a>day 0</h3><p>上午10:00赶高铁前往日照</p><p>12:30到了考场门口</p><p>看到大家都在讨论各种算法怎么写，我就发现我真的都忘了（完了完了</p><h4 id="t1"><a href="#t1" class="headerlink" title="t1"></a>t1</h4><p>签到题总不会太难吧</p><p>emm…$O(n^2)$一眼确实出来了，但这数据范围好像过不了啊。。</p><p>好像可以用树维护一下</p><p>哎算了有点难写，先写个$O(n^2)$下一题了</p><p><strong>半个小时后</strong></p><h4 id="t2"><a href="#t2" class="headerlink" title="t2"></a>t2</h4><p>好像有点难，先过了</p><h4 id="t3"><a href="#t3" class="headerlink" title="t3"></a>t3</h4><p>这题好像还行，想了一个$O(Tn)$的做法：</p><p>在每个点处标记另一个点的位置，我们分两次操作，先选取第一个点（字典序）标记为1，查找该数字另一次出现的位置，标记为n，再查找n位置所组成的连通块（？左右有没有出现L或R的数字（优先L），依次标记即可（常数有点大，不过有$O2$问题不大）</p><p>调了三个半小时，离考试结束三分钟发现因为最后要字典序排序，所有查找都要分开写</p><p>三分钟迅速复制粘贴，也不管码风了，最后一分钟成功把大样例调过</p><h4 id="结束了"><a href="#结束了" class="headerlink" title="结束了"></a>结束了</h4><p>期望得分 140(-40) 吧</p><p>不过最后时间实在太赶，数据范围什么的都没检查</p><p>希望不会在这方面出问题</p>]]></content>
     
     
       
