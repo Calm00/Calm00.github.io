@@ -6,7 +6,7 @@
   <link href="http://www.honahec.com/atom.xml" rel="self"/>
   
   <link href="http://www.honahec.com/"/>
-  <updated>2021-11-01T13:24:17.319Z</updated>
+  <updated>2021-11-01T13:27:33.627Z</updated>
   <id>http://www.honahec.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://www.honahec.com/%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://www.honahec.com/%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/</id>
     <published>2021-11-01T13:00:58.000Z</published>
-    <updated>2021-11-01T13:24:17.319Z</updated>
+    <updated>2021-11-01T13:27:33.627Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>证明等腰三角形的底角相等（是不是很简单）</strong></p><p>即有 $\Delta ABC$ 其中 $AB=AC$，求证 $\ang B = \ang C$</p><h3 id="常规解法"><a href="#常规解法" class="headerlink" title="常规解法"></a>常规解法</h3><p>作 $AD \perp BC$ 交 $BC$ 于 $D$，如图 <img src="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形1.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 33%;" /></p><p>易证 $\Delta ABD \cong \Delta ACD$ </p><p>即 $\ang B = \ang C$</p><h3 id="可以不要辅助线吗？"><a href="#可以不要辅助线吗？" class="headerlink" title="可以不要辅助线吗？"></a>可以不要辅助线吗？</h3><p><strong>当然可以</strong><img src="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形2.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:33%;" /></p><p>我们有 $\left\{ \begin{array}{} AB=AC \\ AC=AB \\ BC=CB \end{array} \right.$</p><p>$\therefore \Delta ABC \cong \Delta ACB$</p><p>即$\ang B = \ang C$</p><h3 id="是不是非常nice"><a href="#是不是非常nice" class="headerlink" title="是不是非常nice"></a>是不是非常nice</h3>]]></content>
+    <content type="html"><![CDATA[<p><strong>证明等腰三角形的底角相等（是不是很简单）</strong></p><p>即有 $\Delta ABC$ 其中 $AB=AC$，求证 $\angle B = \angle C$</p><h3 id="常规解法"><a href="#常规解法" class="headerlink" title="常规解法"></a>常规解法</h3><p>作 $AD \perp BC$ 交 $BC$ 于 $D$，如图 <img src="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形1.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 33%;" /></p><p>易证 $\Delta ABD \cong \Delta ACD$ </p><p>即 $\angle B = \angle C$</p><h3 id="可以不要辅助线吗？"><a href="#可以不要辅助线吗？" class="headerlink" title="可以不要辅助线吗？"></a>可以不要辅助线吗？</h3><p><strong>当然可以</strong><img src="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形2.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/Calm00/PicGo/img/三角形2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:33%;" /></p><p>我们有 $\left\{ \begin{array}{} AB=AC \\ AC=AB \\ BC=CB \end{array} \right.$</p><p>$\therefore \Delta ABC \cong \Delta ACB$</p><p>即$\angle B = \angle C$</p><h3 id="是不是非常nice"><a href="#是不是非常nice" class="headerlink" title="是不是非常nice"></a>是不是非常nice</h3>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;&lt;strong&gt;证明等腰三角形的底角相等（是不是很简单）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;即有 $\Delta ABC$ 其中 $AB=AC$，求证 $\ang B = \ang C$&lt;/p&gt;
-&lt;h3 id=&quot;常规解法&quot;&gt;&lt;a href=&quot;#常规解法&quot; class=&quot;hea</summary>
+&lt;p&gt;即有 $\Delta ABC$ 其中 $AB=AC$，求证 $\angle B = \angle C$&lt;/p&gt;
+&lt;h3 id=&quot;常规解法&quot;&gt;&lt;a href=&quot;#常规解法&quot; class=</summary>
       
     
     
