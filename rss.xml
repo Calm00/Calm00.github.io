@@ -125,15 +125,25 @@
             <title>博客维护动态</title>
             <link>https://honahec.com/update/</link>
             <pubDate>Sun, 05 Sep 2021 16:43:27 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;update-202195&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#update-202195&#34;&gt;#&lt;/a&gt; update 2021.9.5&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;更新计划&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新计划&#34;&gt;#&lt;/a&gt; 更新计划&lt;/h1&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; checked=&#34;true&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 更新 10 篇 blog&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 更新 20 篇 blog&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 修复数学公式问题&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_3&#34;&gt; 修复页内跳转&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_4&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_4&#34;&gt; 重新添加 about&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_5&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_5&#34;&gt; 维护主页标签&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_6&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_6&#34;&gt; 加入开往&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;update-202195&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#update-202195&#34;&gt;#&lt;/a&gt; update 2021.9.5&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 数学公式已经维护完毕！！！（起码目前看来是这样的&lt;/p&gt;
 &lt;h1 id=&#34;update-2021912&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#update-2021912&#34;&gt;#&lt;/a&gt; update 2021.9.12&lt;/h1&gt;
-&lt;p&gt;今天瞎搞了一下，优化了体验（但为什么不能页内跳转了 qwq，我还没备份... 瞎搞有风险，记得备份呜呜呜&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label warning&#34;&gt;warning&lt;/span&gt; 今天瞎搞了一下，优化了体验（但为什么不能页内跳转了 qwq，我还没备份... 瞎搞有风险，记得备份呜呜呜&lt;/p&gt;
 &lt;h1 id=&#34;update-2021919&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#update-2021919&#34;&gt;#&lt;/a&gt; update 2021.9.19&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;更换主题为 Volantis&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;添加友链页面（欢迎互换）&lt;/p&gt;
-&lt;p&gt;添加 about 页面&lt;/p&gt;
-&lt;p&gt;添加开往&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 添加友链页面（欢迎互换）&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 添加 about 页面&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 添加开往&lt;/p&gt;
 &lt;h1 id=&#34;update-2021116&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#update-2021116&#34;&gt;#&lt;/a&gt; update 2021.11.6&lt;/h1&gt;
 &lt;p&gt;更换主题为&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==&#34;&gt; Shoka&lt;/span&gt;&lt;br /&gt;
 &lt;span class=&#34;label warning&#34;&gt;warning&lt;/span&gt; 数学公式出现新的问题&lt;/p&gt;
