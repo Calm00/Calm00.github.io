@@ -455,8 +455,9 @@ for(int i = 2; i &amp;lt;= n; ++i) &amp;#123;
 &lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 添加 about 页面&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 添加开往&lt;/p&gt;
 &lt;h1 id=&#34;update-2021116&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#update-2021116&#34;&gt;#&lt;/a&gt; update 2021.11.6&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;更换主题为&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==&#34;&gt; Shoka&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
-&lt;span class=&#34;label warning&#34;&gt;warning&lt;/span&gt; 数学公式出现新的问题&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;更换主题为&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==&#34;&gt; Shoka&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label warning&#34;&gt;warning&lt;/span&gt; 数学公式出现新的问题&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;label success&#34;&gt;✔️success&lt;/span&gt; 修复页内跳转问题&lt;/p&gt;
  ]]></description>
         </item>
         <item>
